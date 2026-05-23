@@ -1,0 +1,87 @@
+{
+  "method": "R3",
+  "dataset": "ML-20M",
+  "embedding_size": 128,
+  "winner_hparams": {
+    "lr": 0.0003,
+    "weight_decay": 1e-05,
+    "hidden": 256
+  },
+  "selection_protocol": "per-dataset 4-cell grid (lr \u2208 {3e-4, 1e-3} \u00d7 weight_decay \u2208 {1e-5, 1e-4}); MLP hidden=256 fixed; selection metric val NDCG@10",
+  "seeds_evaluated": [
+    42,
+    123,
+    456,
+    789,
+    2026
+  ],
+  "per_seed": {
+    "42": {
+      "NDCG@10": 0.11296461829942553,
+      "Recall@10": 0.048007570238001646,
+      "MRR": 0.2294726253105663
+    },
+    "123": {
+      "NDCG@10": 0.10960551682553146,
+      "Recall@10": 0.04776634092354317,
+      "MRR": 0.22348677201959188
+    },
+    "456": {
+      "NDCG@10": 0.1105442025027972,
+      "Recall@10": 0.04763174292317912,
+      "MRR": 0.22590181810542445
+    },
+    "789": {
+      "NDCG@10": 0.11388781833132196,
+      "Recall@10": 0.047885790191331525,
+      "MRR": 0.2336241979133732
+    },
+    "2026": {
+      "NDCG@10": 0.10242242842809397,
+      "Recall@10": 0.04423723825479916,
+      "MRR": 0.208447281439834
+    }
+  },
+  "summary": {
+    "NDCG@10": {
+      "mean": 0.10988491687743403,
+      "std": 0.004519658081080415,
+      "values": [
+        0.11296461829942553,
+        0.10960551682553146,
+        0.1105442025027972,
+        0.11388781833132196,
+        0.10242242842809397
+      ]
+    },
+    "Recall@10": {
+      "mean": 0.04710573650617093,
+      "std": 0.0016095924170973189,
+      "values": [
+        0.048007570238001646,
+        0.04776634092354317,
+        0.04763174292317912,
+        0.047885790191331525,
+        0.04423723825479916
+      ]
+    },
+    "MRR": {
+      "mean": 0.22418653895775797,
+      "std": 0.009593854791343613,
+      "values": [
+        0.2294726253105663,
+        0.22348677201959188,
+        0.22590181810542445,
+        0.2336241979133732,
+        0.208447281439834
+      ]
+    }
+  },
+  "vs_baseline": {
+    "baseline": "M7",
+    "baseline_NDCG10": 0.1175,
+    "delta_pct": -6.48,
+    "all_seeds_same_sign": true
+  },
+  "_provenance": "Eval-only re-evaluation of code/benchmark/checkpoints/r3/bge-large-en-v1.5 via project HypernetReplacer+evaluate_model. Read-only; checkpoints unmodified. Per-seed detail in results/r3/ml20m/."
+}

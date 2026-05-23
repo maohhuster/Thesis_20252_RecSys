@@ -1,0 +1,61 @@
+# Environment variables / secrets
+.env
+.env.*
+
+# Data files (hosted on HuggingFace, not in Git)
+data/raw/
+data/embeddings/
+data/profiles/
+data/benchmark_splits/
+*.zip
+
+# Large binary files
+*.npy
+*.pkl
+*.pt
+*.pth
+
+# Cache
+cache/
+.cache/
+
+# Output (experiment results committed selectively)
+code/*/output/
+code/benchmark/results/
+
+# Logs
+logs/
+*.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+code/benchmark/external/KAR_upstream/upstream/

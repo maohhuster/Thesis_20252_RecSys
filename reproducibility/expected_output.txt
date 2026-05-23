@@ -1,0 +1,75 @@
+================================================================================
+ LLM-MovieLens — full headline-number reproduction
+ Verifies Table 4, Table 11, density chain, replacer/SASRec cross-density
+================================================================================
+
+[1/5] Table 4 main results (ML-20M, 5-seed mean ± std)
+   ✓ M0                     NDCG@10    | computed 0.1137±0.0004  | paper 0.1137±0.0004
+   ✓ M0                     MRR        | computed 0.2353±0.0029  | paper 0.2353±0.0029
+   ✓ M1                     NDCG@10    | computed 0.1139±0.0007  | paper 0.1139±0.0007
+   ✓ M1                     MRR        | computed 0.2336±0.0014  | paper 0.2336±0.0014
+   ✓ M1c                    NDCG@10    | computed 0.1144±0.0011  | paper 0.1144±0.0011
+   ✓ M1c                    MRR        | computed 0.2322±0.0012  | paper 0.2322±0.0012
+   ✓ M2                     NDCG@10    | computed 0.1144±0.0004  | paper 0.1144±0.0004
+   ✓ M2                     MRR        | computed 0.2367±0.0033  | paper 0.2367±0.0033
+   ✓ M2b                    NDCG@10    | computed 0.1140±0.0018  | paper 0.1140±0.0018
+   ✓ M2b                    MRR        | computed 0.2351±0.0047  | paper 0.2351±0.0047
+   ✓ M3                     NDCG@10    | computed 0.1136±0.0006  | paper 0.1136±0.0006
+   ✓ M3                     MRR        | computed 0.2338±0.0029  | paper 0.2338±0.0029
+   ✓ M4                     NDCG@10    | computed 0.1173±0.0007  | paper 0.1173±0.0007
+   ✓ M4                     MRR        | computed 0.2403±0.0013  | paper 0.2403±0.0013
+   ✓ M7                     NDCG@10    | computed 0.1175±0.0004  | paper 0.1175±0.0004
+   ✓ M7                     MRR        | computed 0.2427±0.0015  | paper 0.2427±0.0015
+   ✓ R1                     NDCG@10    | computed 0.1162±0.0004  | paper 0.1162±0.0004
+   ✓ R1                     MRR        | computed 0.2366±0.0018  | paper 0.2366±0.0018
+   ✓ R1plus                 NDCG@10    | computed 0.1110±0.0005  | paper 0.1110±0.0005
+   ✓ R1plus                 MRR        | computed 0.2276±0.0016  | paper 0.2276±0.0016
+   ✓ R2                     NDCG@10    | computed 0.1145±0.0014  | paper 0.1145±0.0014
+   ✓ R2                     MRR        | computed 0.2371±0.0043  | paper 0.2367±0.0038
+   ✓ R3                     NDCG@10    | computed 0.1099±0.0045  | paper 0.1099±0.0045
+
+[2/5] Table 11 paired t-tests (ML-20M, n=5)
+   ✓ M4-M1         Δ=+0.0034  p=0.00424  **    (paper Δ≈+0.0034, **)
+   ✓ M4-M1c        Δ=+0.0030  p=0.01044  *     (paper Δ≈+0.0030, *)
+   ✓ M4-M2         Δ=+0.0029  p=0.00085  ***   (paper Δ≈+0.0028, **)
+   ✓ M4-M2b        Δ=+0.0033  p=0.02228  *     (paper Δ≈+0.0033, *)
+   ✓ M4-M3         Δ=+0.0037  p=0.00232  **    (paper Δ≈+0.0037, **)
+   ✓ M7-M4         Δ=+0.0001  p=0.66936  ns    (paper Δ≈+0.0001, ns)
+   ✓ M4-R1         Δ=+0.0012  p=0.04109  *     (paper Δ≈+0.0012, *)
+   ✓ M7-R1         Δ=+0.0013  p=0.00681  **    (paper Δ≈+0.0013, **)
+   ✓ M7-R1plus     Δ=+0.0065  p=0.00006  ***   (paper Δ≈+0.0065, ***)
+   ✓ M7-R2         Δ=+0.0030  p=0.01222  *     (paper Δ≈+0.0030, *)
+   ✓ M7-R3         Δ=+0.0076  p=0.02140  *     (paper Δ≈+0.0076, *)
+
+[3/5] Density chain (R1-gene + R1-plus vs M7 across 4 datapoints)
+   ML-20M (paper-canonical M7 per-seed available; full paired-t)
+   ✓ R1      ML-20M    observed Δ=-1.10%  | paper -1.10%   (mean 0.1162 vs M7 0.1175)
+   ✓ R1plus  ML-20M    observed Δ=-5.54%  | paper -5.60%   (mean 0.1110 vs M7 0.1175)
+   sub163: M7 baseline = paper-aggregate 0.1076
+   ✓ R1      sub163    observed Δ=+3.70%  | paper +3.70%   (mean 0.1116 vs M7 0.1076)
+   ✓ R1plus  sub163    observed Δ=+10.90%  | paper +10.90%   (mean 0.1193 vs M7 0.1076)
+   ML-1M: M7 baseline = paper-aggregate 0.1661
+   ✓ R1      ML-1M     observed Δ=+16.96%  | paper +17.00%   (mean 0.1943 vs M7 0.1661)
+   ✓ R1plus  ML-1M     observed Δ=+16.29%  | paper +16.30%   (mean 0.1932 vs M7 0.1661)
+   Amazon: M7 baseline = paper-aggregate 0.0563
+   ✓ R1      Amazon    observed Δ=+29.42%  | paper +29.50%   (mean 0.0729 vs M7 0.0563)
+   ✓ R1plus  Amazon    observed Δ=+26.37%  | paper +26.40%   (mean 0.0711 vs M7 0.0563)
+
+[4/5] Replacer cross-density (R2 + R3 vs M7 on sub163 / ML-1M / Amazon)
+   ✓ R2      ML-20M    observed Δ=-2.53%  | paper -2.60%   (mean 0.1145 vs M7 0.1175)
+   ✓ R3      ML-20M    observed Δ=-6.47%  | paper -6.50%   (mean 0.1099 vs M7 0.1175)
+   ✓ R2      sub163    observed Δ=-5.13%  | paper -5.10%   (mean 0.1021 vs M7 0.1076)
+   ✓ R3      sub163    observed Δ=-3.91%  | paper -3.90%   (mean 0.1034 vs M7 0.1076)
+   ✓ R2      ML-1M     observed Δ=+1.12%  | paper +1.10%   (mean 0.1680 vs M7 0.1661)
+   ✓ R3      ML-1M     observed Δ=+0.48%  | paper +0.50%   (mean 0.1669 vs M7 0.1661)
+   ✓ R2      Amazon    observed Δ=-21.99%  | paper -22.00%   (mean 0.0439 vs M7 0.0563)
+   ✓ R3      Amazon    observed Δ=-11.71%  | paper -11.70%   (mean 0.0497 vs M7 0.0563)
+
+[5/5] SASRec cross-density (vs M1 across ML-20M / ML-1M / Amazon)
+   ✓ SASRec  ML-20M    observed Δ=+3.30%  | paper +3.30%   (mean 0.1177 vs M7 0.1139)
+   ✓ SASRec  ML-1M     observed Δ=-11.73%  | paper -11.70%   (mean 0.1469 vs M7 0.1664)
+   ✓ SASRec  Amazon    observed Δ=-48.58%  | paper -48.50%   (mean 0.0172 vs M7 0.0334)
+
+================================================================================
+ ALL CHECKS PASSED. Released artifact reproduces every headline number in the paper.
+================================================================================

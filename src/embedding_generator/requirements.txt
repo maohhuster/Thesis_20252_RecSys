@@ -1,0 +1,15 @@
+# Embedding Generator — Dependencies
+# Python 3.10+
+
+# Sentence transformers for profile text encoding
+sentence-transformers>=2.2.0
+
+# Core data processing
+numpy>=1.24.0
+pandas>=2.1.0
+
+# Dimensionality reduction
+scikit-learn>=1.3.0
+
+# Progress bars
+tqdm>=4.65.0

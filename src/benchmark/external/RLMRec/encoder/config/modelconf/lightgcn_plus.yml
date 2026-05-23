@@ -1,0 +1,80 @@
+optimizer:
+  name: adam
+  lr: 1.0e-3
+  weight_decay: 0
+
+train:
+  epoch: 3000
+  batch_size: 4096
+  save_model: true
+  loss: pairwise
+  test_step: 3
+  reproducible: true
+  seed: 2023
+  patience: 10  # bumped from upstream-default 5 to give ML-20M's denser graph fair convergence; ML-1M and Amazon already converged at the old patience so re-running them is unnecessary
+
+test:
+  metrics: [recall, ndcg]
+  k: [5, 10, 20]
+  batch_size: 1024
+
+data:
+  type: general_cf
+  name: amazon
+
+model:
+  name: lightgcn_plus
+  # general parameters here
+  keep_rate: 0.8
+  embedding_size: 32
+  # dataset-specific parameters here
+  layer_num: 3
+  reg_weight: 1.0e-7
+  kd_weight: 1.0e-2
+  kd_temperature: 0.2
+  # for amazon
+  amazon:
+    layer_num: 3
+    reg_weight: 1.0e-7
+    kd_weight: 1.0e-2
+    kd_temperature: 0.2
+  # for yelp
+  yelp:
+    layer_num: 3
+    reg_weight: 1.0e-7
+    kd_weight: 1.0e-2
+    kd_temperature: 0.2
+  # for steam:
+  steam:
+    layer_num: 3
+    reg_weight: 1.0e-8
+    kd_weight: 1.0e-3
+    kd_temperature: 0.1
+  # for ml20m:
+  ml20m:
+    layer_num: 3
+    reg_weight: 1.0e-7
+    kd_weight: 1.0e-2
+    kd_temperature: 0.2
+  # for ml1m_ours (ML-1M with our LLM embeddings, regularizer-class triangulation
+  # — values copied from `ml20m:` block; same domain, similar density profile)
+  ml1m_ours:
+    layer_num: 3
+    reg_weight: 1.0e-7
+    kd_weight: 1.0e-2
+    kd_temperature: 0.2
+  # for amazon_ours (cross-domain Amazon-Books with our LLM embeddings,
+  # regularizer-class triangulation — values copied from `amazon:` block;
+  # original RLMRec authors' published Amazon-Book hparams)
+  amazon_ours:
+    layer_num: 2
+    reg_weight: 1.0e-7
+    kd_weight: 1.0e-2
+    kd_temperature: 0.2
+  # for ml20m_sub163_ours (same-domain density control, 225 int/item — completes
+  # the 4-datapoint regularizer chain; mirrors ml20m: block since same domain)
+  ml20m_sub163_ours:
+    layer_num: 3
+    reg_weight: 1.0e-7
+    kd_weight: 1.0e-2
+    kd_temperature: 0.2

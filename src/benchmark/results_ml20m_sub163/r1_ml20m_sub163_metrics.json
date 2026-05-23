@@ -1,0 +1,89 @@
+{
+  "method": "R1-gene",
+  "dataset": "sub163",
+  "embedding_size": 32,
+  "winner_hparams": {
+    "layer_num": 3,
+    "mask_ratio": 0.1,
+    "recon_weight": 0.1,
+    "re_temperature": 0.2,
+    "reg_weight": 1e-07
+  },
+  "selection_protocol": "upstream RLMRec-pattern (ml20m_sub163_ours block; values copied from ml20m: block, same domain)",
+  "seeds_evaluated": [
+    42,
+    123,
+    456,
+    789,
+    2026
+  ],
+  "per_seed": {
+    "42": {
+      "NDCG@10": 0.11568049246081792,
+      "Recall@10": 0.05398552402203058,
+      "MRR": 0.22916686282218865
+    },
+    "123": {
+      "NDCG@10": 0.11077907291133848,
+      "Recall@10": 0.04690434685720377,
+      "MRR": 0.23802356067884586
+    },
+    "456": {
+      "NDCG@10": 0.10780563066572497,
+      "Recall@10": 0.0489741994584652,
+      "MRR": 0.21838698527711156
+    },
+    "789": {
+      "NDCG@10": 0.10974477254098744,
+      "Recall@10": 0.04592682154673959,
+      "MRR": 0.22764468291384596
+    },
+    "2026": {
+      "NDCG@10": 0.11390839097963562,
+      "Recall@10": 0.04883721389512727,
+      "MRR": 0.2429637799189388
+    }
+  },
+  "summary": {
+    "NDCG@10": {
+      "mean": 0.11158367191170089,
+      "std": 0.0031816184348447824,
+      "values": [
+        0.11568049246081792,
+        0.11077907291133848,
+        0.10780563066572497,
+        0.10974477254098744,
+        0.11390839097963562
+      ]
+    },
+    "Recall@10": {
+      "mean": 0.048925621155913285,
+      "std": 0.003110110190828632,
+      "values": [
+        0.05398552402203058,
+        0.04690434685720377,
+        0.0489741994584652,
+        0.04592682154673959,
+        0.04883721389512727
+      ]
+    },
+    "MRR": {
+      "mean": 0.23123717432218616,
+      "std": 0.009564097726965972,
+      "values": [
+        0.22916686282218865,
+        0.23802356067884586,
+        0.21838698527711156,
+        0.22764468291384596,
+        0.2429637799189388
+      ]
+    }
+  },
+  "vs_baseline": {
+    "baseline": "M7",
+    "baseline_NDCG10": 0.1076,
+    "delta_pct": 3.7,
+    "all_seeds_same_sign": true
+  },
+  "_provenance": "Re-evaluation of RLMRec native checkpoints external/RLMRec/encoder/checkpoint/lightgcn_gene/lightgcn_gene-ml20m_sub163_ours-<seed>.pth (read-only). Same-domain density control; full-ranking compute_metrics."
+}

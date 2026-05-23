@@ -1,0 +1,354 @@
+{
+  "_doc": "Single source of truth for critical Tier-3+ checkpoints/results. Regenerate: python3 scripts/build_artifact_index.py. Originals never moved.",
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    2026
+  ],
+  "entries": [
+    {
+      "method": "R1-gene",
+      "datapoint": "ML-20M",
+      "checkpoint_pattern": "code/benchmark/checkpoints/r1/bge-large-en-v1.5/seed-<seed>/best_model.pt",
+      "n_seed_ckpts": 5,
+      "ckpt_sha256": [
+        "0281a46c6ea75f7f107b9c882c2523e269a10969d5431a9ddc94425d15ac2a77",
+        "2ef655929c01dc60f165173550da9975d4c191a8ad0dbafd8dcb207f95617e8f",
+        "443823e8b1f43934b443cc2f54bbc4e89f11946bc8ee94b3e420888247c1aabc",
+        "9ad6470022b463180417e11bf9e49a539fc0e72f810bf449c8e9279f82189511",
+        "daf82b973c4fc3ec8caa2f364339d5035b3b877514de40382df560f7d719c723"
+      ],
+      "duplicate_backfill": false,
+      "result": "code/benchmark/results/r1_metrics.json",
+      "ndcg10": 0.1162,
+      "eval_cmd": "python3 scripts/eval_ml20m_r1.py --device mps",
+      "json_only": false,
+      "artifacts_view": "reproducibility/artifacts/R1-gene/ML-20M"
+    },
+    {
+      "method": "R1-gene",
+      "datapoint": "sub163",
+      "checkpoint_pattern": "code/benchmark/checkpoints_ml20m_sub163/r1/bge-large-en-v1.5/seed-<seed>/best_model.pt",
+      "n_seed_ckpts": 5,
+      "ckpt_sha256": [
+        "a64bfd7e923f98c4ec155801a6d6de99480d850fe2f955557700bb9c6c339d88",
+        "dd9312a4d60158f74e56afd01bb51282fe268eeb1d70d8affd464a212c81cdd7",
+        "b23e624395e19d6b32e7b8e60e9df4d127535f275ee4a001def7f19c94f18400",
+        "601615591ca43304937a804d4899dfba152dee7d4f9b9069c7efd65f3da9fa4c",
+        "78d48c4697e4c7bc2d15e662bb48690d10efb5528c1fab1f6855a8bc329fcf74"
+      ],
+      "duplicate_backfill": false,
+      "result": "code/benchmark/results_ml20m_sub163/r1_ml20m_sub163_metrics.json",
+      "ndcg10": 0.1116,
+      "eval_cmd": "python3 scripts/eval_ml20m_sub163_r1.py --device mps",
+      "json_only": false,
+      "artifacts_view": "reproducibility/artifacts/R1-gene/sub163"
+    },
+    {
+      "method": "R1-gene",
+      "datapoint": "ML-1M",
+      "checkpoint_pattern": "code/benchmark/checkpoints_ml1m/r1/bge-large-en-v1.5/seed-<seed>/best_model.pt",
+      "n_seed_ckpts": 5,
+      "ckpt_sha256": [
+        "e1c8d2779aecb97abf981c9183437cd12399955fc79564ed825883d26192fabf",
+        "e4811fd210c56c75513661583e14e46109d3d7684bc77216ea08e842f4c86e6c",
+        "a32635099e83266c42f5763cb910a0ce0d243b6d39a784d1dd2bfe8512487ab8",
+        "e2fa0152fef609f21a623a29288ddafee1f5de87aa38c31d804e37007ec62fae",
+        "f03fd1a3da2381582b1cb081280965a734c5f92b778c08d43ef24cb9c2256faf"
+      ],
+      "duplicate_backfill": false,
+      "result": "code/benchmark/results_ml1m/r1_ml1m_metrics.json",
+      "ndcg10": 0.1943,
+      "eval_cmd": "python3 scripts/eval_ml1m_r1.py",
+      "json_only": false,
+      "artifacts_view": "reproducibility/artifacts/R1-gene/ML-1M"
+    },
+    {
+      "method": "R1-gene",
+      "datapoint": "Amazon",
+      "checkpoint_pattern": "code/benchmark/checkpoints_amazon/r1/bge-large-en-v1.5/seed-<seed>/best_model.pt",
+      "n_seed_ckpts": 5,
+      "ckpt_sha256": [
+        "a2114e4e5a8779b1002d63cf5f96cf3582b975318a0f4dc6071808c1e81e3c1e",
+        "ce986f665cefd861db4487ad5dc31b55d9386ac56ce1cce0324443da7ec43cdd",
+        "0df80d0c1297f7025ce7eff8737187e7dee1f12adb4ec1f19a73852ca5abb35b",
+        "fa5e1fa85298ea8c5b4d6da7c19cf6f30ab3fc3b79a6fb5ff51790fbf2b481d0",
+        "10bc08ce0599d7750aad041a1f719f080e712ab626fb08316df78f100bc75d51"
+      ],
+      "duplicate_backfill": false,
+      "result": "code/benchmark/results_amazon/r1_amazon_metrics.json",
+      "ndcg10": 0.0729,
+      "eval_cmd": "python3 scripts/eval_amazon_r1.py",
+      "json_only": false,
+      "artifacts_view": "reproducibility/artifacts/R1-gene/Amazon"
+    },
+    {
+      "method": "R1-plus",
+      "datapoint": "ML-20M",
+      "checkpoint_pattern": "code/benchmark/checkpoints/r1plus/bge-large-en-v1.5/seed-<seed>/best_model.pt",
+      "n_seed_ckpts": 5,
+      "ckpt_sha256": [
+        "77a6540ed9b8f5a5f7cddb038dc25bc1bd1ad8b828b698bb3360ce3eb75c2115",
+        "6801d0ae184b4941422804e3d52c807f53aee4c13b95ab9f04307e4cf187554f",
+        "54389f066ce4b46cf81fa96f658590297ae73ab35496caba1005a152754c7c4c",
+        "175be1c626ae139a8c52050d213472055938f7dae77b5504e793b538f79e6c0f",
+        "442fbee0134f85f97c7e37dda5e2cac953202de052ef5369f11411a5f9afab12"
+      ],
+      "duplicate_backfill": false,
+      "result": "code/benchmark/results/r1plus_metrics.json",
+      "ndcg10": 0.111,
+      "eval_cmd": "python3 scripts/eval_ml20m_r1plus.py --device mps",
+      "json_only": false,
+      "artifacts_view": "reproducibility/artifacts/R1-plus/ML-20M"
+    },
+    {
+      "method": "R1-plus",
+      "datapoint": "sub163",
+      "checkpoint_pattern": "code/benchmark/checkpoints_ml20m_sub163/r1plus/bge-large-en-v1.5/seed-<seed>/best_model.pt",
+      "n_seed_ckpts": 5,
+      "ckpt_sha256": [
+        "46aef37fb4ec4bbf20f3a787247f4e867b2ede44812161c670d20cb044704e7a",
+        "ba5b9c2ffd92a7df3940ede62afd89a085bf807894bd1af5d452d051e32d65d9",
+        "938e3f86b5f7ac4c7f9e2bab54b69b84c9946fd15f72bbeaba38bca2b95edb6a",
+        "fff307332d029c0687606f6f4933b37b6ccb1797c249f6229b9dd3c669198fbf",
+        "1c1c8b1d09b97572b05a1adadcd082552bd4e07b1865a739d31f3b43bfb7877f"
+      ],
+      "duplicate_backfill": false,
+      "result": "code/benchmark/results_ml20m_sub163/r1plus_ml20m_sub163_metrics.json",
+      "ndcg10": 0.1193,
+      "eval_cmd": "python3 scripts/eval_ml20m_sub163_r1plus.py --device mps",
+      "json_only": false,
+      "artifacts_view": "reproducibility/artifacts/R1-plus/sub163"
+    },
+    {
+      "method": "R1-plus",
+      "datapoint": "ML-1M",
+      "checkpoint_pattern": "code/benchmark/checkpoints_ml1m/r1plus/bge-large-en-v1.5/seed-<seed>/best_model.pt",
+      "n_seed_ckpts": 5,
+      "ckpt_sha256": [
+        "055682d96354a7dc84872cac589f9c3ab23ef4cd11f0d3d4349157b91e9d24d4",
+        "cf5c8cf5141074cbf3f3d90557c62f39813c059c2ebb09be30bd1715f60d2b69",
+        "cf0d5135a5e81bc36ac1372c05b29f2ac9334e61473fea497f2657b1253ee5e3",
+        "88bc6a11bc6db54a50de177741a98b79b75f585444f1186c0f627b1283cdee2f",
+        "d62de4486ed70eb1c9f1875b0c4bf0ba239f942616472ecd178c5fbdd738263c"
+      ],
+      "duplicate_backfill": false,
+      "result": "code/benchmark/results_ml1m/r1plus_ml1m_metrics.json",
+      "ndcg10": 0.1932,
+      "eval_cmd": "python3 scripts/eval_ml1m_r1plus.py",
+      "json_only": false,
+      "artifacts_view": "reproducibility/artifacts/R1-plus/ML-1M"
+    },
+    {
+      "method": "R1-plus",
+      "datapoint": "Amazon",
+      "checkpoint_pattern": "code/benchmark/checkpoints_amazon/r1plus/bge-large-en-v1.5/seed-<seed>/best_model.pt",
+      "n_seed_ckpts": 5,
+      "ckpt_sha256": [
+        "60b08ae8d16f902fc51e3dcd214e2b35e007a3c5d9f7f836068ab0d3040afbc9",
+        "ec021374e1a43d4cffde724b6567d50fa6e07bd8a28cfa55f8ddb8ab19b8268a",
+        "85e787fdc5d38492cda10b3f7f52f6f127534d1ff6495f2069f29dbeafe7d822",
+        "1c14c1eaaa08671931b248e31972493186a0b76455abf36c01827af640937840",
+        "a1a1535ffa4e0e59f403ef1c7ffedaabeaca5cea712684576ab9657b2d8e2993"
+      ],
+      "duplicate_backfill": false,
+      "result": "code/benchmark/results_amazon/r1plus_amazon_metrics.json",
+      "ndcg10": 0.0711,
+      "eval_cmd": "python3 scripts/eval_amazon_r1plus.py",
+      "json_only": false,
+      "artifacts_view": "reproducibility/artifacts/R1-plus/Amazon"
+    },
+    {
+      "method": "R2",
+      "datapoint": "ML-20M",
+      "checkpoint_pattern": "code/benchmark/checkpoints/r2/bge-large-en-v1.5/seed-<seed>/best_model.pt",
+      "n_seed_ckpts": 5,
+      "ckpt_sha256": [
+        "609b4db36640b9a7ebd207a98ce05ec974d330e31ff06163b9bce3318b4030c6",
+        "49df5cb3af06365ca8b1fbc3b480acd64db49fa5dbaef1f3bffbbdef0fcf68ef",
+        "2b680b03c2496a497615b38fffbe43a7a324b0fa42acbb770d6b42633d3b80c7",
+        "5eb303e4b5289ae658131193dc023bf45074c44f22e45457471baceffa53f549",
+        "5ef1d88d1db1ae08097106a0aa56851e45fa37c207f9b61ac65819e9e7f157e3"
+      ],
+      "duplicate_backfill": false,
+      "result": "code/benchmark/results/r2_metrics.json",
+      "ndcg10": 0.1145,
+      "eval_cmd": "python3 scripts/eval_ml20m_r2.py --device mps",
+      "json_only": false,
+      "artifacts_view": "reproducibility/artifacts/R2/ML-20M"
+    },
+    {
+      "method": "R2",
+      "datapoint": "ML-1M",
+      "checkpoint_pattern": "code/benchmark/checkpoints_ml1m/r2/bge-large-en-v1.5/seed-<seed>/best_model.pt",
+      "n_seed_ckpts": 5,
+      "ckpt_sha256": [
+        "a39397f8adb55eeeb7ac80f1328d52b3474f245ebb97005460dfd160d48fd0b9",
+        "2aa9520231aaf151a825f4d56c3fc1b2b363a815a7ea7d4216159f25f1e42bba",
+        "aa681fc0ecff7300d1dd8a6ab3fcc15a1723bfcbf99fa8126b13a2a0c444c602",
+        "92cf1c988d7dc429d25802b1ccb551d58f9511d6c20d764a18df5a688905f6ae",
+        "23ae36366d0021ed5dfe7b6c7e37a9f4e6dd9721619e228e9dcdd8aaf3751e3a"
+      ],
+      "duplicate_backfill": false,
+      "result": "code/benchmark/results_ml1m/r2_ml1m_metrics.json",
+      "ndcg10": 0.168,
+      "eval_cmd": "python3 scripts/run_r2_retune_sweep.py  (ml1m block)",
+      "json_only": false,
+      "artifacts_view": "reproducibility/artifacts/R2/ML-1M"
+    },
+    {
+      "method": "R2",
+      "datapoint": "Amazon",
+      "checkpoint_pattern": "code/benchmark/checkpoints_amazon/r2/bge-large-en-v1.5/seed-<seed>/best_model.pt",
+      "n_seed_ckpts": 5,
+      "ckpt_sha256": [
+        "f7cd2b431e6fd0ddecc5869e713e7693cd935fbc91178868344f9f30fa85a709",
+        "d9521c311a44111641d881417b103b8d54e8fa84e742f261f52502efef7a2556",
+        "2e59a5cf6c7243eb3b305dea6ca222b8a4fc447e03b0dba2ffe7e96414e7c1e0",
+        "ad362b23661fee19f703515f4d6b33b3fbed67e588fd6379f92bd22808e79d16",
+        "3a1a59748ba8a11d408309d4a2f3088819d328ec41ef79c3f455b205cc001a78"
+      ],
+      "duplicate_backfill": false,
+      "result": "code/benchmark/results_amazon/r2_amazon_metrics.json",
+      "ndcg10": 0.0439,
+      "eval_cmd": "python3 scripts/run_r2_retune_sweep.py  (amazon block)",
+      "json_only": false,
+      "artifacts_view": "reproducibility/artifacts/R2/Amazon"
+    },
+    {
+      "method": "R3",
+      "datapoint": "ML-20M",
+      "checkpoint_pattern": "code/benchmark/checkpoints/r3/bge-large-en-v1.5/seed-<seed>/best_model.pt",
+      "n_seed_ckpts": 5,
+      "ckpt_sha256": [
+        "b7451edfe2352b36c810e3aa7c77d00767ef1e579b18f72d0a16fa21f0fe9839",
+        "204be5047f6f6a369551eee593f4f8602295576649339c1c611fde2da29b4d53",
+        "b103241b94e8c61d7b7382e5810fc4894e8887ce481ae9515b908ec2a9cccfbc",
+        "68cd1ae962bf74badbc492918d5293c2381bd46215a23a759021f90a44f7d541",
+        "52a0cb43c9b3bfa35e0f7c574c1027386784be7c9f8a1ec0d523bd800e282059"
+      ],
+      "duplicate_backfill": false,
+      "result": "code/benchmark/hparams/r3/grid_selection.json",
+      "ndcg10": 0.1099,
+      "eval_cmd": "python3 scripts/eval_r3_ml20m_checkpoints.py --device mps",
+      "json_only": false,
+      "artifacts_view": "reproducibility/artifacts/R3/ML-20M"
+    },
+    {
+      "method": "R3",
+      "datapoint": "ML-1M",
+      "checkpoint_pattern": "code/benchmark/checkpoints_ml1m/r3/bge-large-en-v1.5/seed-<seed>/best_model.pt",
+      "n_seed_ckpts": 5,
+      "ckpt_sha256": [
+        "a17b7adf4f77e0483914241cea46e41d2c98e6de6ae2366fdc400c1485f92015",
+        "9744f2946be482dfb9665be3d87f8b1a41afd24df1657cbae7108fa518bca2a7",
+        "5e1ebaefa4c14a70efcb27ef56bb49596d382c55426d686c6d93f0736c25350e",
+        "86d112180090dd651c3f5e52fefd98f4c7bd3297a903a766f3630e1971ea0929",
+        "5c69f7d27656517011d9ecc25c41af5186e723a045a72a0669a317be8f688385"
+      ],
+      "duplicate_backfill": false,
+      "result": "code/benchmark/results_ml1m/r3_ml1m_metrics.json",
+      "ndcg10": 0.1669,
+      "eval_cmd": "python3 scripts/run_r3_retune_sweep.py  (ml1m block)",
+      "json_only": false,
+      "artifacts_view": "reproducibility/artifacts/R3/ML-1M"
+    },
+    {
+      "method": "R3",
+      "datapoint": "Amazon",
+      "checkpoint_pattern": "code/benchmark/checkpoints_amazon/r3/bge-large-en-v1.5/seed-<seed>/best_model.pt",
+      "n_seed_ckpts": 5,
+      "ckpt_sha256": [
+        "0b6c3f23b382ef00e4148d702c4edb01fb4f2b245bdc8c89d8872208b5ded538",
+        "d785b47e8533123dad6fbb2b6b6b5e8068b97d9d384f4e00966e9466ecec54f5",
+        "628edbe8200238f1b49c0bf8bfaaec7c9e7c4c02aa9ae55b94159ca4265543e7",
+        "322a3b825397155bd5dd6330caf677e6fd0ae72a1613d0fdda6b10ec3830a05e",
+        "22b25235e932621535471843452c0bebdd17c0dbba7527164194b606d33b2af1"
+      ],
+      "duplicate_backfill": false,
+      "result": "code/benchmark/results_amazon/r3_amazon_metrics.json",
+      "ndcg10": 0.0497,
+      "eval_cmd": "python3 scripts/run_r3_retune_sweep.py  (amazon block)",
+      "json_only": false,
+      "artifacts_view": "reproducibility/artifacts/R3/Amazon"
+    },
+    {
+      "method": "SASRec",
+      "datapoint": "ML-20M",
+      "checkpoint_pattern": "code/benchmark/checkpoints/sasrec_pmixer/bge-large-en-v1.5/seed-<seed>/best_model.pt",
+      "n_seed_ckpts": 5,
+      "ckpt_sha256": [
+        "b384adcaa30a7045835eb86207f2529e7a1deb18726aab6191d8e2aab74d5743",
+        "f7c9b1ae0db50c296bca1729dd679eb7ff37f79448efdf884590b2c3938a11d9",
+        "edef2e7c46e278e70989db1ff20510a580ca3a075b5acb107f9b384125b13808",
+        "6714d4ca08770c0bd7c27f447479bdaf7debeb94974b00e0856be38ce6af9c2e",
+        "0e028568cb7b586d6e658d09bcdce95b4499c0845f6b4cfd253786e8dd45d410"
+      ],
+      "duplicate_backfill": false,
+      "result": "code/benchmark/results/sasrec_pmixer/bge-large-en-v1.5/ml20m_test_5seeds.json",
+      "ndcg10": 0.1177,
+      "eval_cmd": "python3 scripts/run_ml20m_sasrec_pmixer.py",
+      "json_only": false,
+      "artifacts_view": "reproducibility/artifacts/SASRec/ML-20M"
+    },
+    {
+      "method": "SASRec",
+      "datapoint": "sub163",
+      "checkpoint_pattern": "code/benchmark/checkpoints_ml20m_sub163/sasrec_pmixer/bge-large-en-v1.5/seed-<seed>/best_model.pt",
+      "n_seed_ckpts": 5,
+      "ckpt_sha256": [
+        "7bfd71317ac6b52448b1137d90381a7f302341aa961346bff35f1acba0b4a2c9",
+        "3b98c38b97788d394c7ed6439370c7cd8fd3b67d1213572853c32a34de9e1d13",
+        "6ffc787264efe2acbc724bafaefb2b9c736bd71839401f8e7fd3717f01d8b4f0",
+        "a6845b28b4c57be8eff5dd0cf43299bb0b9f43086fc1d4fd576185c55f0000e5",
+        "5e952b763e2424adee1012d3dd1b5b5ac2c6a6f1a8f2ba3040e2b14a1dc6342b"
+      ],
+      "duplicate_backfill": false,
+      "result": "code/benchmark/results_ml20m_sub163/sasrec_pmixer/bge-large-en-v1.5/seed-<seed>/results.json",
+      "ndcg10": null,
+      "eval_cmd": "python3 scripts/run_ml20m_sub163_sasrec_pmixer.py",
+      "json_only": false,
+      "artifacts_view": "reproducibility/artifacts/SASRec/sub163"
+    },
+    {
+      "method": "SASRec",
+      "datapoint": "ML-1M",
+      "checkpoint_pattern": "code/benchmark/checkpoints_ml1m/sasrec_pmixer/bge-large-en-v1.5/seed-<seed>/best_model.pt",
+      "n_seed_ckpts": 5,
+      "ckpt_sha256": [
+        "07d82e185c2aeab755645a5c5c32b6915dd632f3baf28168d9f12ce33ba58ece",
+        "cb5dd9d394c099affdf4f2d06eda72978c1b73e92ac143e5b1bdf4f7738772ac",
+        "7e80971d57b9b7469d413a52a702db9a8ff5ebdfbe02dc6074b6f80a1e527603",
+        "747357c5e7d15d26bf5f91d1f92a80d09fd56244294369193f779538320f3862",
+        "a9ce3a616d5f70fb2ee07a142848295b6be4cb8b523452fd4f2ead8c407223eb"
+      ],
+      "duplicate_backfill": false,
+      "result": "code/benchmark/results_ml1m/sasrec_pmixer/bge-large-en-v1.5/seed-<seed>/results.json",
+      "ndcg10": null,
+      "eval_cmd": "python3 scripts/run_ml1m_sasrec_pmixer.py",
+      "json_only": false,
+      "artifacts_view": "reproducibility/artifacts/SASRec/ML-1M"
+    },
+    {
+      "method": "SASRec",
+      "datapoint": "Amazon",
+      "checkpoint_pattern": "code/benchmark/checkpoints_amazon/sasrec_pmixer/bge-large-en-v1.5/seed-<seed>/best_model.pt",
+      "n_seed_ckpts": 5,
+      "ckpt_sha256": [
+        "82d142760cb6c15b71c24ea41a6ddc16336cf509e2075425a807ba7e1317b6d1",
+        "95d8448c2c63b91ab3f3a1d98ec3bae64bf2a2f63b1de65c6041c3a2a710587b",
+        "d0dfc3a817b9dc53ede5c8bd098cb64c9136e41a4852e846e59caa536d32187a",
+        "fab97a3dcdb3bbec4c7443a05419a1a20d7b5b36d9236b8ab1f465b757989595",
+        "290034b1e215fb14e63f11ee11b461b91c9fef752757f6f1e1d92cac21bf393b"
+      ],
+      "duplicate_backfill": false,
+      "result": "code/benchmark/results_amazon/sasrec_pmixer/bge-large-en-v1.5/seed-<seed>/results.json",
+      "ndcg10": null,
+      "eval_cmd": "python3 scripts/run_amazon_sasrec_pmixer.py",
+      "json_only": false,
+      "artifacts_view": "reproducibility/artifacts/SASRec/Amazon"
+    }
+  ]
+}

@@ -1,0 +1,1262 @@
+{
+  "method": "R1 = RLMRec-gene (generative reconstruction regularizer)",
+  "protocol_notes": "ML-20M home-dataset selection grid is at d=128 (capacity-matched to the M7/LightGCN-SF backbone). Subsampled-ML-20M, ML-1M, Amazon-Books inherit RLMRec's upstream-canonical per-dataset YAMLs at the upstream-native d=32. R1-plus uses 32-d uniformly at every datapoint. The earlier d=32 grid is preserved at datasets.ml20m_d32_archive for audit.",
+  "selection_metric": "validation Recall@20 (RLMRec native upstream early-stopping: patience=5, max 200 epochs)",
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    2026
+  ],
+  "datasets": {
+    "ml20m": {
+      "role": "home dataset \u2014 full 54-point grid selection at d=128 (capacity-matched to M7/LightGCN-SF backbone)",
+      "embedding_size": 128,
+      "grid_axes": {
+        "layer_num": [
+          2,
+          3
+        ],
+        "mask_ratio": [
+          0.05,
+          0.1,
+          0.15
+        ],
+        "recon_weight": [
+          0.05,
+          0.1,
+          0.15
+        ],
+        "re_temperature": [
+          0.1,
+          0.2,
+          0.5
+        ],
+        "reg_weight_fixed": 1e-07
+      },
+      "n_cells": 54,
+      "cells": [
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.05,
+          "re_temperature": 0.1,
+          "val_recall20": 0.0479,
+          "best_epoch": 24,
+          "total_epochs": 39,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.05,
+          "re_temperature": 0.2,
+          "val_recall20": 0.0516,
+          "best_epoch": 51,
+          "total_epochs": 66,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.05,
+          "re_temperature": 0.5,
+          "val_recall20": 0.0522,
+          "best_epoch": 51,
+          "total_epochs": 66,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.1,
+          "re_temperature": 0.1,
+          "val_recall20": 0.0503,
+          "best_epoch": 48,
+          "total_epochs": 63,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.1,
+          "re_temperature": 0.2,
+          "val_recall20": 0.0507,
+          "best_epoch": 51,
+          "total_epochs": 66,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.1,
+          "re_temperature": 0.5,
+          "val_recall20": 0.0527,
+          "best_epoch": 66,
+          "total_epochs": 81,
+          "winner": true
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.15,
+          "re_temperature": 0.1,
+          "val_recall20": 0.0479,
+          "best_epoch": 48,
+          "total_epochs": 63,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.15,
+          "re_temperature": 0.2,
+          "val_recall20": 0.0484,
+          "best_epoch": 39,
+          "total_epochs": 54,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.15,
+          "re_temperature": 0.5,
+          "val_recall20": 0.0515,
+          "best_epoch": 69,
+          "total_epochs": 84,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.05,
+          "re_temperature": 0.1,
+          "val_recall20": 0.048,
+          "best_epoch": 60,
+          "total_epochs": 75,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.05,
+          "re_temperature": 0.2,
+          "val_recall20": 0.0507,
+          "best_epoch": 30,
+          "total_epochs": 45,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.05,
+          "re_temperature": 0.5,
+          "val_recall20": 0.0518,
+          "best_epoch": 48,
+          "total_epochs": 63,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.1,
+          "re_temperature": 0.1,
+          "val_recall20": 0.0482,
+          "best_epoch": 27,
+          "total_epochs": 42,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.1,
+          "re_temperature": 0.2,
+          "val_recall20": 0.0508,
+          "best_epoch": 54,
+          "total_epochs": 69,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.1,
+          "re_temperature": 0.5,
+          "val_recall20": 0.0524,
+          "best_epoch": 84,
+          "total_epochs": 99,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.15,
+          "re_temperature": 0.1,
+          "val_recall20": 0.0484,
+          "best_epoch": 30,
+          "total_epochs": 45,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.15,
+          "re_temperature": 0.2,
+          "val_recall20": 0.0506,
+          "best_epoch": 48,
+          "total_epochs": 63,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.15,
+          "re_temperature": 0.5,
+          "val_recall20": 0.0515,
+          "best_epoch": 66,
+          "total_epochs": 81,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.05,
+          "re_temperature": 0.1,
+          "val_recall20": 0.0481,
+          "best_epoch": 33,
+          "total_epochs": 48,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.05,
+          "re_temperature": 0.2,
+          "val_recall20": 0.051,
+          "best_epoch": 54,
+          "total_epochs": 69,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.05,
+          "re_temperature": 0.5,
+          "val_recall20": 0.0519,
+          "best_epoch": 84,
+          "total_epochs": 99,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.1,
+          "re_temperature": 0.1,
+          "val_recall20": 0.0478,
+          "best_epoch": 27,
+          "total_epochs": 42,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.1,
+          "re_temperature": 0.2,
+          "val_recall20": 0.049,
+          "best_epoch": 36,
+          "total_epochs": 51,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.1,
+          "re_temperature": 0.5,
+          "val_recall20": 0.0475,
+          "best_epoch": 51,
+          "total_epochs": 66,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.15,
+          "re_temperature": 0.1,
+          "val_recall20": 0.0492,
+          "best_epoch": 33,
+          "total_epochs": 48,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.15,
+          "re_temperature": 0.2,
+          "val_recall20": 0.0502,
+          "best_epoch": 39,
+          "total_epochs": 54,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.15,
+          "re_temperature": 0.5,
+          "val_recall20": 0.0508,
+          "best_epoch": 48,
+          "total_epochs": 63,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.05,
+          "re_temperature": 0.1,
+          "val_recall20": 0.0452,
+          "best_epoch": 27,
+          "total_epochs": 42,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.05,
+          "re_temperature": 0.2,
+          "val_recall20": 0.0477,
+          "best_epoch": 33,
+          "total_epochs": 48,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.05,
+          "re_temperature": 0.5,
+          "val_recall20": 0.0512,
+          "best_epoch": 66,
+          "total_epochs": 81,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.1,
+          "re_temperature": 0.1,
+          "val_recall20": 0.0471,
+          "best_epoch": 36,
+          "total_epochs": 51,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.1,
+          "re_temperature": 0.2,
+          "val_recall20": 0.0501,
+          "best_epoch": 72,
+          "total_epochs": 87,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.1,
+          "re_temperature": 0.5,
+          "val_recall20": 0.0498,
+          "best_epoch": 42,
+          "total_epochs": 57,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.15,
+          "re_temperature": 0.1,
+          "val_recall20": 0.0496,
+          "best_epoch": 45,
+          "total_epochs": 60,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.15,
+          "re_temperature": 0.2,
+          "val_recall20": 0.0501,
+          "best_epoch": 48,
+          "total_epochs": 63,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.15,
+          "re_temperature": 0.5,
+          "val_recall20": 0.0512,
+          "best_epoch": 54,
+          "total_epochs": 69,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.05,
+          "re_temperature": 0.1,
+          "val_recall20": 0.0495,
+          "best_epoch": 42,
+          "total_epochs": 57,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.05,
+          "re_temperature": 0.2,
+          "val_recall20": 0.0503,
+          "best_epoch": 48,
+          "total_epochs": 63,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.05,
+          "re_temperature": 0.5,
+          "val_recall20": 0.0514,
+          "best_epoch": 57,
+          "total_epochs": 72,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.1,
+          "re_temperature": 0.1,
+          "val_recall20": 0.0509,
+          "best_epoch": 96,
+          "total_epochs": 111,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.1,
+          "re_temperature": 0.2,
+          "val_recall20": 0.0507,
+          "best_epoch": 54,
+          "total_epochs": 69,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.1,
+          "re_temperature": 0.5,
+          "val_recall20": 0.0515,
+          "best_epoch": 33,
+          "total_epochs": 48,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.15,
+          "re_temperature": 0.1,
+          "val_recall20": 0.0501,
+          "best_epoch": 81,
+          "total_epochs": 96,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.15,
+          "re_temperature": 0.2,
+          "val_recall20": 0.0506,
+          "best_epoch": 57,
+          "total_epochs": 72,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.15,
+          "re_temperature": 0.5,
+          "val_recall20": 0.0514,
+          "best_epoch": 42,
+          "total_epochs": 57,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.05,
+          "re_temperature": 0.1,
+          "val_recall20": 0.0498,
+          "best_epoch": 69,
+          "total_epochs": 84,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.05,
+          "re_temperature": 0.2,
+          "val_recall20": 0.0516,
+          "best_epoch": 75,
+          "total_epochs": 90,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.05,
+          "re_temperature": 0.5,
+          "val_recall20": 0.0515,
+          "best_epoch": 78,
+          "total_epochs": 93,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.1,
+          "re_temperature": 0.1,
+          "val_recall20": 0.0488,
+          "best_epoch": 66,
+          "total_epochs": 81,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.1,
+          "re_temperature": 0.2,
+          "val_recall20": 0.0504,
+          "best_epoch": 78,
+          "total_epochs": 93,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.1,
+          "re_temperature": 0.5,
+          "val_recall20": 0.052,
+          "best_epoch": 57,
+          "total_epochs": 72,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.15,
+          "re_temperature": 0.1,
+          "val_recall20": 0.0489,
+          "best_epoch": 36,
+          "total_epochs": 51,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.15,
+          "re_temperature": 0.2,
+          "val_recall20": 0.0509,
+          "best_epoch": 72,
+          "total_epochs": 87,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.15,
+          "re_temperature": 0.5,
+          "val_recall20": 0.0511,
+          "best_epoch": 66,
+          "total_epochs": 81,
+          "winner": false
+        }
+      ],
+      "winner": {
+        "layer_num": 2,
+        "mask_ratio": 0.05,
+        "recon_weight": 0.1,
+        "re_temperature": 0.5,
+        "val_recall20": 0.0527,
+        "best_epoch": 66,
+        "total_epochs": 81
+      },
+      "winner_val_recall20": 0.0527,
+      "test_metrics": {
+        "NDCG@10": {
+          "mean": 0.11618404081709519,
+          "std": 0.00037835602315813496,
+          "values": [
+            0.11664991488290348,
+            0.1158890574931104,
+            0.1158277702534509,
+            0.11652617787744785,
+            0.11602728357856339
+          ]
+        },
+        "Recall@10": {
+          "mean": 0.049454660692647485,
+          "std": 0.0007479241890272466,
+          "values": [
+            0.050651856271893884,
+            0.04900143029929302,
+            0.048681313711068014,
+            0.049455747789112534,
+            0.04948295539186994
+          ]
+        },
+        "MRR": {
+          "mean": 0.23660253574848777,
+          "std": 0.0017754778759728708,
+          "values": [
+            0.23893965437360332,
+            0.23727832336818802,
+            0.23435203352560507,
+            0.2354043012485881,
+            0.23703836622645447
+          ]
+        }
+      },
+      "test_metrics_file": "../../results/r1_metrics.json",
+      "supersedes_d32_winner": {
+        "layer_num": 3,
+        "mask_ratio": 0.1,
+        "recon_weight": 0.1,
+        "re_temperature": 0.2
+      },
+      "_notes": "d=128 capacity-matched grid selects a SHALLOWER (layer_num=3->2) and softer-temperature (re_temperature=0.2->0.5) configuration than the d=32 grid. 5-seed deploy at the d=128 winner: NDCG@10 = 0.1162 \u00b1 0.0004 (seeds 42,123,456,789,2026 = [0.1166, 0.1159, 0.1158, 0.1165, 0.116]). Capacity-matching narrows R1's gap to M7 (M7=0.1175 \u00b1 0.0004) from -2.2% (d=32) to -1.1% (d=128) while preserving p<0.01 significance (paired-t p=0.007). The earlier d=32 cells are preserved under 'ml20m_d32_archive' for audit."
+    },
+    "ml20m_sub163": {
+      "role": "upstream-canonical (no separate grid)",
+      "inherits_from": "code/benchmark/external/RLMRec/encoder/config/modelconf/lightgcn_gene.yml ml20m_sub163_ours block",
+      "test_metrics_file": "../../results_ml20m_sub163/r1_ml20m_sub163_metrics.json"
+    },
+    "ml1m": {
+      "role": "upstream-canonical (no separate grid)",
+      "inherits_from": "code/benchmark/external/RLMRec/encoder/config/modelconf/lightgcn_gene.yml ml1m_ours block",
+      "test_metrics_file": "../../results_ml1m/r1_ml1m_metrics.json"
+    },
+    "amazon": {
+      "role": "upstream-canonical (no separate grid)",
+      "inherits_from": "code/benchmark/external/RLMRec/encoder/config/modelconf/lightgcn_gene.yml amazon_ours block",
+      "test_metrics_file": "../../results_amazon/r1_amazon_metrics.json"
+    },
+    "ml20m_d32_archive": {
+      "role": "PRIOR d=32 selection grid \u2014 archived for audit; superseded by d=128 in datasets.ml20m",
+      "embedding_size": 32,
+      "grid_axes": {
+        "layer_num": [
+          2,
+          3
+        ],
+        "mask_ratio": [
+          0.05,
+          0.1,
+          0.15
+        ],
+        "recon_weight": [
+          0.05,
+          0.1,
+          0.15
+        ],
+        "re_temperature": [
+          0.1,
+          0.2,
+          0.5
+        ],
+        "reg_weight_fixed": 1e-07
+      },
+      "n_cells": 54,
+      "cells": [
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.05,
+          "re_temperature": 0.1,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.05,
+          "re_temperature": 0.2,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.05,
+          "re_temperature": 0.5,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.1,
+          "re_temperature": 0.1,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.1,
+          "re_temperature": 0.2,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.1,
+          "re_temperature": 0.5,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.15,
+          "re_temperature": 0.1,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.15,
+          "re_temperature": 0.2,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.15,
+          "re_temperature": 0.5,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.05,
+          "re_temperature": 0.1,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.05,
+          "re_temperature": 0.2,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.05,
+          "re_temperature": 0.5,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.1,
+          "re_temperature": 0.1,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.1,
+          "re_temperature": 0.2,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.1,
+          "re_temperature": 0.5,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.15,
+          "re_temperature": 0.1,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.15,
+          "re_temperature": 0.2,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.15,
+          "re_temperature": 0.5,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.05,
+          "re_temperature": 0.1,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.05,
+          "re_temperature": 0.2,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.05,
+          "re_temperature": 0.5,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.1,
+          "re_temperature": 0.1,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.1,
+          "re_temperature": 0.2,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.1,
+          "re_temperature": 0.5,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.15,
+          "re_temperature": 0.1,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.15,
+          "re_temperature": 0.2,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 2,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.15,
+          "re_temperature": 0.5,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.05,
+          "re_temperature": 0.1,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.05,
+          "re_temperature": 0.2,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.05,
+          "re_temperature": 0.5,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.1,
+          "re_temperature": 0.1,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.1,
+          "re_temperature": 0.2,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.1,
+          "re_temperature": 0.5,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.15,
+          "re_temperature": 0.1,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.15,
+          "re_temperature": 0.2,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.05,
+          "recon_weight": 0.15,
+          "re_temperature": 0.5,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.05,
+          "re_temperature": 0.1,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.05,
+          "re_temperature": 0.2,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.05,
+          "re_temperature": 0.5,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.1,
+          "re_temperature": 0.1,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.1,
+          "re_temperature": 0.2,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": 0.11486,
+          "winner": true
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.1,
+          "re_temperature": 0.5,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.15,
+          "re_temperature": 0.1,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.15,
+          "re_temperature": 0.2,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.1,
+          "recon_weight": 0.15,
+          "re_temperature": 0.5,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.05,
+          "re_temperature": 0.1,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.05,
+          "re_temperature": 0.2,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.05,
+          "re_temperature": 0.5,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.1,
+          "re_temperature": 0.1,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.1,
+          "re_temperature": 0.2,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.1,
+          "re_temperature": 0.5,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.15,
+          "re_temperature": 0.1,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.15,
+          "re_temperature": 0.2,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        },
+        {
+          "layer_num": 3,
+          "mask_ratio": 0.15,
+          "recon_weight": 0.15,
+          "re_temperature": 0.5,
+          "reg_weight": 1e-07,
+          "val_recall20": null,
+          "test_ndcg10": null,
+          "winner": false
+        }
+      ],
+      "winner": {
+        "layer_num": 3,
+        "mask_ratio": 0.1,
+        "recon_weight": 0.1,
+        "re_temperature": 0.2
+      },
+      "_status": "Archived d=32 selection grid \u2014 superseded by the d=128 capacity-matched grid at datasets.ml20m. Selection metric was validation Recall@20 (RLMRec's upstream-native criterion; patience=5). Per-cell val_recall20 values were not persisted from the original sweep; only the winner cell is retained. The winner_test_metrics block carries the d=32 winner's 5-seed aggregate for audit cross-reference against the paper's App. r1plus_triangulation capacity-ablation disclosure.",
+      "_superseded_by": "datasets.ml20m (d=128)",
+      "_superseded_date": "2026-05-21",
+      "winner_test_metrics": {
+        "_source": "5-seed paper-canonical aggregate at d=32 ml20m_d32 winner (ln=3, mr=0.10, rw=0.10, rt=0.2); per-seed values retained internally (not part of public artifact). Aggregate reproduces paper App. tier3_hparams \u00a7L1278 disclosure.",
+        "seeds": [
+          42,
+          123,
+          456,
+          789,
+          2026
+        ],
+        "NDCG@10": {
+          "mean": 0.11486,
+          "std": 0.00087
+        },
+        "Recall@10": {
+          "mean": 0.04786,
+          "std": 0.00025
+        },
+        "MRR": {
+          "mean": 0.23448,
+          "std": 0.00266
+        },
+        "vs_m7_NDCG10_delta_pct": -2.23,
+        "paired_t_p": 0.0067,
+        "all_seeds_same_sign": true
+      }
+    }
+  },
+  "regeneration_scripts": {
+    "ml20m_grid_seed42": "scripts/run_r1_ml20m_single.py",
+    "ml20m_d128_revalidation": "scripts/run_r1_ml20m_revalidate_d128.py",
+    "ml20m_resumable_5seed": "scripts/run_r1_ml20m_resumable.py",
+    "sub163_5seed": "scripts/run_ml20m_sub163_r1.sh",
+    "ml1m_5seed": "scripts/run_ml1m_r1.sh",
+    "amazon_5seed": "scripts/run_amazon_r1.sh"
+  }
+}

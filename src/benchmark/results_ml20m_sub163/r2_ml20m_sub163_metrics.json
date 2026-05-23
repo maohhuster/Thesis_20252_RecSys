@@ -1,0 +1,87 @@
+{
+  "method": "R2",
+  "dataset": "sub163",
+  "embedding_size": 128,
+  "winner_hparams": {
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "n_experts": 4
+  },
+  "selection_protocol": "pre-registered 4-cell grid (lr x weight_decay) at seed 42; winner re-run over 5 seeds. Identical protocol to the published R2/R3 per-dataset retune (App. r2_retune / r3_triangulation).",
+  "seeds_evaluated": [
+    42,
+    123,
+    456,
+    789,
+    2026
+  ],
+  "per_seed": {
+    "42": {
+      "NDCG@10": 0.09989542687144852,
+      "Recall@10": 0.04227192282636304,
+      "MRR": 0.21433491241328917
+    },
+    "123": {
+      "NDCG@10": 0.10472932985668038,
+      "Recall@10": 0.04672981451808263,
+      "MRR": 0.21626824145735976
+    },
+    "456": {
+      "NDCG@10": 0.10484411466706679,
+      "Recall@10": 0.04015492941565266,
+      "MRR": 0.2140257171109771
+    },
+    "789": {
+      "NDCG@10": 0.10001120606376328,
+      "Recall@10": 0.04062374598130308,
+      "MRR": 0.21348942934147278
+    },
+    "2026": {
+      "NDCG@10": 0.10091824716557958,
+      "Recall@10": 0.04054472221790938,
+      "MRR": 0.21460348034635876
+    }
+  },
+  "summary": {
+    "NDCG@10": {
+      "mean": 0.10207966492490772,
+      "std": 0.00250305891728991,
+      "values": [
+        0.09989542687144852,
+        0.10472932985668038,
+        0.10484411466706679,
+        0.10001120606376328,
+        0.10091824716557958
+      ]
+    },
+    "Recall@10": {
+      "mean": 0.04206502699186216,
+      "std": 0.002731306411722195,
+      "values": [
+        0.04227192282636304,
+        0.04672981451808263,
+        0.04015492941565266,
+        0.04062374598130308,
+        0.04054472221790938
+      ]
+    },
+    "MRR": {
+      "mean": 0.2145443561338915,
+      "std": 0.0010489280154664287,
+      "values": [
+        0.21433491241328917,
+        0.21626824145735976,
+        0.2140257171109771,
+        0.21348942934147278,
+        0.21460348034635876
+      ]
+    }
+  },
+  "vs_baseline": {
+    "baseline": "M7",
+    "baseline_NDCG10": 0.1076,
+    "delta_pct": -5.1,
+    "all_seeds_same_sign": true
+  },
+  "_provenance": "5-seed subsampled-ML-20M (same-domain density control, 225 int/item) R2 retune; promoted into the CIKM submission to complete the replacer-class 4-datapoint triangulation. Per-seed re-evaluation of checkpoints_ml20m_sub163/r2/."
+}

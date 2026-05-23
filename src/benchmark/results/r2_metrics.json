@@ -1,0 +1,88 @@
+{
+  "method": "R2",
+  "dataset": "ML-20M",
+  "embedding_size": 128,
+  "winner_hparams": {
+    "n_experts": 4,
+    "lr": 0.001,
+    "weight_decay": 1e-05,
+    "hidden": 128
+  },
+  "selection_protocol": "18-point grid (n_experts \u00d7 lr \u00d7 weight_decay); selection metric val NDCG@10 (LightGCN-SF native), patience=20",
+  "seeds_evaluated": [
+    42,
+    123,
+    456,
+    789,
+    2026
+  ],
+  "per_seed": {
+    "42": {
+      "NDCG@10": 0.11508119049475884,
+      "Recall@10": 0.048786700083626434,
+      "MRR": 0.23928738203138586
+    },
+    "123": {
+      "NDCG@10": 0.1135999939921816,
+      "Recall@10": 0.048029318545813375,
+      "MRR": 0.2379896718264909
+    },
+    "456": {
+      "NDCG@10": 0.1142884342651401,
+      "Recall@10": 0.04826259030374544,
+      "MRR": 0.23368180451661988
+    },
+    "789": {
+      "NDCG@10": 0.11660462988176169,
+      "Recall@10": 0.04973292032043982,
+      "MRR": 0.24249841040384007
+    },
+    "2026": {
+      "NDCG@10": 0.11298015663420025,
+      "Recall@10": 0.04883154290767112,
+      "MRR": 0.2319872989329353
+    }
+  },
+  "summary": {
+    "NDCG@10": {
+      "mean": 0.11451088105360849,
+      "std": 0.0014081328128594322,
+      "values": [
+        0.11508119049475884,
+        0.1135999939921816,
+        0.1142884342651401,
+        0.11660462988176169,
+        0.11298015663420025
+      ]
+    },
+    "Recall@10": {
+      "mean": 0.04872861443225924,
+      "std": 0.0006574176290868507,
+      "values": [
+        0.048786700083626434,
+        0.048029318545813375,
+        0.04826259030374544,
+        0.04973292032043982,
+        0.04883154290767112
+      ]
+    },
+    "MRR": {
+      "mean": 0.2370889135422544,
+      "std": 0.004258583949343027,
+      "values": [
+        0.23928738203138586,
+        0.2379896718264909,
+        0.23368180451661988,
+        0.24249841040384007,
+        0.2319872989329353
+      ]
+    }
+  },
+  "vs_baseline": {
+    "baseline": "M7",
+    "baseline_NDCG10": 0.1175,
+    "delta_pct": -2.54,
+    "all_seeds_same_sign": true
+  },
+  "_provenance": "Re-evaluation of code/benchmark/checkpoints/r2/bge-large-en-v1.5 via project build_model('kar')+evaluate_model; map_location fix vs train.py:211 (CUDA-saved ckpts). Read-only; checkpoints unmodified."
+}

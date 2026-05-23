@@ -1,0 +1,439 @@
+{
+  "method": "R2 = KAR-style MoE replacer (HEA-LightGCN backbone)",
+  "protocol_notes": "ML-20M native main-results selection via an 18-point grid (n_experts \u00d7 lr \u00d7 weight_decay). The ML-20M winner is inherited unchanged to ML-1M and Amazon-Books in the headline cross-density tables. As a robustness control, ML-1M and Amazon are additionally re-tuned with a pre-registered 4-cell (lr \u00d7 weight_decay) grid within the union of KAR's published per-task grids; both datasets independently select cells inside that union. n_experts=4 is fixed in the retune.",
+  "selection_metric": "validation NDCG@10",
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    2026
+  ],
+  "datasets": {
+    "ml20m": {
+      "role": "home dataset \u2014 full 18-point grid selection",
+      "grid_axes": {
+        "n_experts": [
+          2,
+          4,
+          8
+        ],
+        "lr": [
+          0.0005,
+          0.001,
+          0.005
+        ],
+        "weight_decay": [
+          1e-05,
+          0.0001
+        ]
+      },
+      "n_cells": 18,
+      "cells": [
+        {
+          "n_experts": 2,
+          "lr": 0.0005,
+          "weight_decay": 1e-05,
+          "val_ndcg10": 0.1051,
+          "winner": false
+        },
+        {
+          "n_experts": 2,
+          "lr": 0.0005,
+          "weight_decay": 0.0001,
+          "val_ndcg10": 0.1044,
+          "winner": false
+        },
+        {
+          "n_experts": 2,
+          "lr": 0.001,
+          "weight_decay": 1e-05,
+          "val_ndcg10": 0.103,
+          "winner": false
+        },
+        {
+          "n_experts": 2,
+          "lr": 0.001,
+          "weight_decay": 0.0001,
+          "val_ndcg10": 0.1059,
+          "winner": false
+        },
+        {
+          "n_experts": 2,
+          "lr": 0.005,
+          "weight_decay": 1e-05,
+          "val_ndcg10": 0.1042,
+          "winner": false
+        },
+        {
+          "n_experts": 2,
+          "lr": 0.005,
+          "weight_decay": 0.0001,
+          "val_ndcg10": 0.1049,
+          "winner": false
+        },
+        {
+          "n_experts": 4,
+          "lr": 0.0005,
+          "weight_decay": 1e-05,
+          "val_ndcg10": 0.1142,
+          "winner": false
+        },
+        {
+          "n_experts": 4,
+          "lr": 0.0005,
+          "weight_decay": 0.0001,
+          "val_ndcg10": 0.114,
+          "winner": false
+        },
+        {
+          "n_experts": 4,
+          "lr": 0.001,
+          "weight_decay": 1e-05,
+          "val_ndcg10": 0.1151,
+          "winner": true
+        },
+        {
+          "n_experts": 4,
+          "lr": 0.001,
+          "weight_decay": 0.0001,
+          "val_ndcg10": 0.1138,
+          "winner": false
+        },
+        {
+          "n_experts": 4,
+          "lr": 0.005,
+          "weight_decay": 1e-05,
+          "val_ndcg10": 0.1135,
+          "winner": false
+        },
+        {
+          "n_experts": 4,
+          "lr": 0.005,
+          "weight_decay": 0.0001,
+          "val_ndcg10": 0.1143,
+          "winner": false
+        },
+        {
+          "n_experts": 8,
+          "lr": 0.0005,
+          "weight_decay": 1e-05,
+          "val_ndcg10": 0.113,
+          "winner": false
+        },
+        {
+          "n_experts": 8,
+          "lr": 0.0005,
+          "weight_decay": 0.0001,
+          "val_ndcg10": 0.1128,
+          "winner": false
+        },
+        {
+          "n_experts": 8,
+          "lr": 0.001,
+          "weight_decay": 1e-05,
+          "val_ndcg10": 0.1117,
+          "winner": false
+        },
+        {
+          "n_experts": 8,
+          "lr": 0.001,
+          "weight_decay": 0.0001,
+          "val_ndcg10": 0.1123,
+          "winner": false
+        },
+        {
+          "n_experts": 8,
+          "lr": 0.005,
+          "weight_decay": 1e-05,
+          "val_ndcg10": 0.1109,
+          "winner": false
+        },
+        {
+          "n_experts": 8,
+          "lr": 0.005,
+          "weight_decay": 0.0001,
+          "val_ndcg10": 0.112,
+          "winner": false
+        }
+      ],
+      "winner": {
+        "n_experts": 4,
+        "lr": 0.001,
+        "weight_decay": 1e-05
+      },
+      "test_metrics_file": "../../results/r2_metrics.json",
+      "test_metrics": {
+        "NDCG@10": {
+          "mean": 0.11451088105360849,
+          "std": 0.0014081328128594322,
+          "values": [
+            0.11508119049475884,
+            0.1135999939921816,
+            0.1142884342651401,
+            0.11660462988176169,
+            0.11298015663420025
+          ]
+        },
+        "Recall@10": {
+          "mean": 0.04872861443225924,
+          "std": 0.0006574176290868507,
+          "values": [
+            0.048786700083626434,
+            0.048029318545813375,
+            0.04826259030374544,
+            0.04973292032043982,
+            0.04883154290767112
+          ]
+        },
+        "MRR": {
+          "mean": 0.2370889135422544,
+          "std": 0.004258583949343027,
+          "values": [
+            0.23928738203138586,
+            0.2379896718264909,
+            0.23368180451661988,
+            0.24249841040384007,
+            0.2319872989329353
+          ]
+        }
+      }
+    },
+    "ml1m": {
+      "role": "per-dataset 4-cell retune (robustness control)",
+      "grid_axes": {
+        "lr": [
+          0.0003,
+          0.001
+        ],
+        "weight_decay": [
+          1e-05,
+          0.0001
+        ],
+        "n_experts_fixed": 4
+      },
+      "cells": [
+        {
+          "lr": 0.0003,
+          "weight_decay": 1e-05,
+          "val_ndcg10": null,
+          "winner": false
+        },
+        {
+          "lr": 0.0003,
+          "weight_decay": 0.0001,
+          "val_ndcg10": null,
+          "winner": false
+        },
+        {
+          "lr": 0.001,
+          "weight_decay": 1e-05,
+          "val_ndcg10": null,
+          "winner": false
+        },
+        {
+          "lr": 0.001,
+          "weight_decay": 0.0001,
+          "val_ndcg10": null,
+          "winner": true
+        }
+      ],
+      "winner": {
+        "lr": 0.001,
+        "weight_decay": 0.0001,
+        "n_experts": 4
+      },
+      "n_seeds": 5,
+      "retuned_test_metrics": {
+        "NDCG@10": {
+          "mean": 0.16796686335271685,
+          "std": 0.005267553576684614,
+          "values": [
+            0.16597117088666105,
+            0.16615541319890542,
+            0.16513409402718476,
+            0.17735540834104246,
+            0.1652182303097905
+          ]
+        },
+        "Recall@10": {
+          "mean": 0.04466021607558202,
+          "std": 0.00495612384526102,
+          "values": [
+            0.04240225556888504,
+            0.042828479090230784,
+            0.04235760048340049,
+            0.05351614895586555,
+            0.04219659627952824
+          ]
+        },
+        "MRR": {
+          "mean": 0.31465424135454395,
+          "std": 0.004737842867547742,
+          "values": [
+            0.3126191851497398,
+            0.3138072617566239,
+            0.31250510900732265,
+            0.3229859536791301,
+            0.31135369717990335
+          ]
+        }
+      },
+      "original_paper_test_metrics": {
+        "NDCG@10": {
+          "mean": 0.1677,
+          "std": 0.0046
+        },
+        "Recall@10": {
+          "mean": 0.0438,
+          "std": 0.003
+        },
+        "MRR": {
+          "mean": 0.314,
+          "std": 0.0033
+        }
+      },
+      "delta_vs_original": {
+        "NDCG@10": {
+          "abs": 0.0002668633527168618,
+          "pct": 0.15913139696890982
+        },
+        "Recall@10": {
+          "abs": 0.0008602160755820237,
+          "pct": 1.9639636428813327
+        },
+        "MRR": {
+          "abs": 0.0006542413545439496,
+          "pct": 0.2083571192815126
+        }
+      },
+      "winner_5seed_files": [
+        "ml1m_winner_seed42.json",
+        "ml1m_winner_seed123.json",
+        "ml1m_winner_seed456.json",
+        "ml1m_winner_seed789.json",
+        "ml1m_winner_seed2026.json"
+      ]
+    },
+    "amazon": {
+      "role": "per-dataset 4-cell retune (robustness control)",
+      "grid_axes": {
+        "lr": [
+          0.0003,
+          0.001
+        ],
+        "weight_decay": [
+          1e-05,
+          0.0001
+        ],
+        "n_experts_fixed": 4
+      },
+      "cells": [
+        {
+          "lr": 0.0003,
+          "weight_decay": 1e-05,
+          "val_ndcg10": null,
+          "winner": false
+        },
+        {
+          "lr": 0.0003,
+          "weight_decay": 0.0001,
+          "val_ndcg10": null,
+          "winner": false
+        },
+        {
+          "lr": 0.001,
+          "weight_decay": 1e-05,
+          "val_ndcg10": null,
+          "winner": false
+        },
+        {
+          "lr": 0.001,
+          "weight_decay": 0.0001,
+          "val_ndcg10": null,
+          "winner": true
+        }
+      ],
+      "winner": {
+        "lr": 0.001,
+        "weight_decay": 0.0001,
+        "n_experts": 4
+      },
+      "n_seeds": 5,
+      "retuned_test_metrics": {
+        "NDCG@10": {
+          "mean": 0.04391819996476225,
+          "std": 0.0013497632403613985,
+          "values": [
+            0.04343088223287925,
+            0.042123134342515904,
+            0.04562266618390686,
+            0.043592542855393934,
+            0.044821774209115255
+          ]
+        },
+        "Recall@10": {
+          "mean": 0.058518584459208565,
+          "std": 0.0018791038090459687,
+          "values": [
+            0.05816707577612504,
+            0.05615752381825819,
+            0.06093262561860699,
+            0.05753784753614045,
+            0.05979784954691219
+          ]
+        },
+        "MRR": {
+          "mean": 0.07961939591009701,
+          "std": 0.0016617237623912295,
+          "values": [
+            0.0783665993615136,
+            0.0779333805919246,
+            0.08214104291958402,
+            0.07952184135533728,
+            0.08013411532212557
+          ]
+        }
+      },
+      "original_paper_test_metrics": {
+        "NDCG@10": {
+          "mean": 0.0401,
+          "std": 0.0045
+        },
+        "Recall@10": {
+          "mean": 0.0538,
+          "std": 0.0059
+        },
+        "MRR": {
+          "mean": 0.0731,
+          "std": 0.0075
+        }
+      },
+      "delta_vs_original": {
+        "NDCG@10": {
+          "abs": 0.0038181999647622505,
+          "pct": 9.521695672723817
+        },
+        "Recall@10": {
+          "abs": 0.004718584459208565,
+          "pct": 8.770603084030789
+        },
+        "MRR": {
+          "abs": 0.006519395910097009,
+          "pct": 8.91846225731465
+        }
+      },
+      "winner_5seed_files": [
+        "amazon_winner_seed42.json",
+        "amazon_winner_seed123.json",
+        "amazon_winner_seed456.json",
+        "amazon_winner_seed789.json",
+        "amazon_winner_seed2026.json"
+      ]
+    }
+  },
+  "regeneration_scripts": {
+    "ml20m_18pt_grid": "scripts/run_r2_ml20m_grid.py",
+    "per_dataset_retune": "scripts/run_r2_retune_sweep.py  (master) / scripts/run_r2_retune.py (single)"
+  }
+}

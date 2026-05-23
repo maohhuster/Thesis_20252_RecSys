@@ -1,0 +1,17 @@
+# LLM Movie Profile Generator — Dependencies
+# Python 3.10+
+
+# Core data processing
+pandas>=2.1.0
+numpy>=1.24.0
+
+# Anthropic Claude API
+anthropic>=0.40.0
+
+# TMDb API crawling
+aiohttp>=3.9.0
+
+# Environment variable loading
+python-dotenv>=1.0.0
+
+# Utilities (already in stdlib: json, asyncio, logging, pathlib, argparse)

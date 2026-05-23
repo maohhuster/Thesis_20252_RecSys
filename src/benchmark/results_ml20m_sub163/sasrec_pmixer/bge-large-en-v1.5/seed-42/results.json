@@ -1,0 +1,44 @@
+{
+  "experiment": "sasrec_pmixer/bge-large-en-v1.5/seed-42",
+  "config": {
+    "hidden_units": 50,
+    "num_blocks": 2,
+    "num_heads": 1,
+    "dropout_rate": 0.2,
+    "maxlen": 200,
+    "lr": 0.001,
+    "batch_size": 128,
+    "num_epochs": 1000,
+    "l2_emb": 0.0,
+    "norm_first": false,
+    "seed": 42,
+    "best_epoch": 40,
+    "model_source": "pmixer/SASRec.pytorch (vendored)",
+    "evaluator": "our full-ranking compute_metrics",
+    "split": "temporal (processed)"
+  },
+  "best_val_metrics": {
+    "HR@10": 0.3926553672316384,
+    "Recall@10": 0.06364096664567441,
+    "NDCG@10": 0.09612126056710557,
+    "HR@20": 0.5084745762711864,
+    "Recall@20": 0.11084907361602861,
+    "NDCG@20": 0.1029450341603336,
+    "HR@50": 0.6666666666666666,
+    "Recall@50": 0.2111708347248287,
+    "NDCG@50": 0.13097404432665422,
+    "MRR": 0.2176370922341857
+  },
+  "test_metrics": {
+    "HR@10": 0.46285714285714286,
+    "Recall@10": 0.05676546476900508,
+    "NDCG@10": 0.10978974099485943,
+    "HR@20": 0.6057142857142858,
+    "Recall@20": 0.10183811885849979,
+    "NDCG@20": 0.11472079238362953,
+    "HR@50": 0.7142857142857143,
+    "Recall@50": 0.16843847297656311,
+    "NDCG@50": 0.13016895352357236,
+    "MRR": 0.21535815634013333
+  }
+}
