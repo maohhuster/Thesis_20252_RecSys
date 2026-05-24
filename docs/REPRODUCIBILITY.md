@@ -50,7 +50,7 @@ After `make reproduce`, you should see results matching Table 4 in the paper (wi
 | M0: BPR-MF | ~0.1137 |
 | M4: +LLM Profile | ~0.1173 |
 | M7: +Profile+Mood | ~0.1175 |
-| R1: RLMRec-gene (regularizer) | ~0.1149 |
+| R1: RLMRec-gene (regularizer) | ~0.1162 |
 | R2: KAR-style MoE replacer | ~0.1145 |
 
 ## Option B: Full Pipeline Reproduction

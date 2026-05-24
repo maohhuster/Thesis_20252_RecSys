@@ -9,7 +9,7 @@ This directory is the one-command reproduction surface for every paper-canonical
 | Section | Coverage | Source files |
 |---|---|---|
 | 1. Table 4 (main results, ML-20M) | 12 configs (M0, M1, M1c, M2, M2b, M3, M4, M7, R1, R1-plus, R2, R3) × 2 metrics (NDCG@10, MRR), minus R3's unreported MRR = 23 aggregate cells | hard-coded per-seed values for M-configs (paper-canonical spreadsheet snapshot) + `code/benchmark/results/r{1,1plus,2,3}_metrics.json` for Tier-3 |
-| 2. Table 11 (paired *t*-tests, ML-20M) | 11 comparisons including M4-vs-baselines, M7-vs-Tier-3 (R1, R1-plus, R2, R3) | computed inline from the same per-seed arrays via `scipy.stats.ttest_rel` |
+| 2. Table 11 (paired *t*-tests, ML-20M) | 10 comparisons: M4 vs. each baseline (M1, M1c, M2, M2b, M3), M7 vs. M4, and M4/M7 vs. Tier-3 R1, R2 (R1-plus & R3 ML-20M appear in rows 3-4) | computed inline from the same per-seed arrays via `scipy.stats.ttest_rel` |
 | 3. Density chain (R1-gene + R1-plus vs M7) | 8 cells = 2 methods × 4 datapoints (ML-20M / sub-ML-20M / ML-1M / Amazon) | `code/benchmark/results*/r{1,1plus}_*_metrics.json` |
 | 4. Replacer cross-density (R2 + R3 vs M7) | 8 cells = 2 methods × 4 datapoints (ML-20M / sub-ML-20M / ML-1M / Amazon) | `code/benchmark/results*/r{2,3}_*_metrics.json` |
 | 5. SASRec cross-density (vs M1) | 3 cells = ML-20M / ML-1M / Amazon | `code/benchmark/results*/sasrec_pmixer/...` per-seed dirs |

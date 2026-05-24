@@ -169,7 +169,8 @@ PAPER_TABLE_4 = {
     "R3":     {"NDCG@10": (0.1099, 0.0045), "MRR": (None, None)},
 }
 
-# Table 11 paired-t (left, right, metric, expected_delta_mean, expected_band)
+# Table 11 paired-t, NDCG@10 column (left, right, metric, expected_delta_mean, expected_band).
+# Rows mirror the paper's Table 11 exactly; R1-plus / R3 ML-20M are verified below in [3/5] / [4/5].
 PAPER_TABLE_11 = [
     ("M4", "M1",     "NDCG@10", +0.0034, "**"),
     ("M4", "M1c",    "NDCG@10", +0.0030, "*"),
@@ -178,10 +179,9 @@ PAPER_TABLE_11 = [
     ("M4", "M3",     "NDCG@10", +0.0037, "**"),
     ("M7", "M4",     "NDCG@10", +0.0001, "ns"),
     ("M4", "R1",     "NDCG@10", +0.0012, "*"),
+    ("M4", "R2",     "NDCG@10", +0.0028, "*"),
     ("M7", "R1",     "NDCG@10", +0.0013, "**"),
-    ("M7", "R1plus", "NDCG@10", +0.0065, "***"),  # paper: p=6e-5
     ("M7", "R2",     "NDCG@10", +0.0030, "*"),
-    ("M7", "R3",     "NDCG@10", +0.0076, "*"),    # paper: p=0.021
 ]
 
 # Cross-density chain Δ% vs M7 (paper-canonical)
