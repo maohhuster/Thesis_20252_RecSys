@@ -25,6 +25,7 @@ Architecture (R3 = MLP from content to item embedding, no ID, no gating): see
 
 ## Subsampled-ML-20M
 
-R3 is NOT evaluated on the sub163 density-control by design (see paper
-Limitations + `App. r3_triangulation`). The future-fullmatrix project carries
-the sub163 grid + checkpoints for a follow-up paper.
+R3 is evaluated on the sub163 same-domain density control as part of the
+replacer-class triangulation across all four datapoints (App. `r3_triangulation`):
+R3 scores −3.9% vs. M7 (p<0.001, 5/5 same-sign). Per-seed metrics:
+`results_ml20m_sub163/r3_ml20m_sub163_metrics.json`.
