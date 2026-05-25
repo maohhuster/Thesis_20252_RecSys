@@ -1,3 +1,5 @@
+> _[LLM-MovieLens](../../../README.md) · benchmark → Amazon-Books-2018 test metrics — see the [root README](../../../README.md) for the paper overview + repo map._
+
 # Amazon-Books-2018 test metrics
 
 5-seed aggregate test metrics per Tier-3 / Tier-3+ method on Amazon-Books-2018 (sparse-density endpoint, 13 int/item).

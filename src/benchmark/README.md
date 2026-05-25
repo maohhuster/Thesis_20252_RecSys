@@ -1,3 +1,5 @@
+> _[LLM-MovieLens](../../README.md) · the benchmark — models · training · evaluation — see the [root README](../../README.md) for the paper overview + repo map._
+
 # Recommendation Benchmark: LLM-Generated Features for MovieLens 20M
 
 A rigorous benchmark for evaluating LLM-generated movie embeddings as item side features in collaborative filtering. Designed for reproducibility.

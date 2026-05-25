@@ -1,3 +1,5 @@
+> _[LLM-MovieLens](../../../../README.md) · benchmark → hyperparameters → R1 (RLMRec-gene) — see the [root README](../../../../README.md) for the paper overview + repo map._
+
 # R1 (RLMRec-gene) — hyperparameter selection
 
 This directory carries everything reviewers need to inspect or reproduce R1-gene's

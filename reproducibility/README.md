@@ -1,3 +1,5 @@
+> _[LLM-MovieLens](../README.md) · reproducibility verifier (53-cell headline check) — see the [root README](../README.md) for the paper overview + repo map._
+
 # Reproducibility — LLM-MovieLens
 
 This directory is the one-command reproduction surface for every paper-canonical numerical claim. **No GPU required.** Runs in ~60 seconds on any laptop.

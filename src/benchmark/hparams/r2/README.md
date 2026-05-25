@@ -1,3 +1,5 @@
+> _[LLM-MovieLens](../../../../README.md) · benchmark → hyperparameters → R2 (KAR-MoE replacer) — see the [root README](../../../../README.md) for the paper overview + repo map._
+
 # R2 (KAR-MoE replacer) — hyperparameter selection
 
 ## Files

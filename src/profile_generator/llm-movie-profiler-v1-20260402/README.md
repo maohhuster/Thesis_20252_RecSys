@@ -1,3 +1,5 @@
+> _[LLM-MovieLens](../../../README.md) · profile generation (Stage 1) — see the [root README](../../../README.md) for the paper overview + repo map._
+
 # LLM Movie Profile Generator for MovieLens 20M
 
 Generate **embedding-optimized** 80–120 word movie profiles for the **10,381 genome-covered movies** in MovieLens 20M using **Claude Haiku 4.5**, integrating top-30 genome tags by relevance score with crawled TMDb metadata. Each profile is designed to maximize downstream sentence-transformer embedding quality for collaborative filtering augmentation.

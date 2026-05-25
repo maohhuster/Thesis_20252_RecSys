@@ -1,3 +1,5 @@
+> _[LLM-MovieLens](../../../../README.md) · benchmark → hyperparameters → R3 (HypernetReplacer) — see the [root README](../../../../README.md) for the paper overview + repo map._
+
 # R3 (HypernetReplacer) — hyperparameter selection
 
 R3 is the second replacer-class instantiation used to triangulate R2; it is

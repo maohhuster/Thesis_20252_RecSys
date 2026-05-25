@@ -1,3 +1,5 @@
+> _[LLM-MovieLens](../../README.md) · embedding generation (Stage 2) — see the [root README](../../README.md) for the paper overview + repo map._
+
 # Movie Embedding Generator
 
 Converts LLM-generated movie profiles into multiple embedding types for use as item features in recommendation models. Operates on the output of the [profile_generator](../profile_generator/) pipeline.
