@@ -1,0 +1,44 @@
+# Extend Research
+
+This directory is a standalone workspace for follow-up experiments built on top of
+the MovieLens recommendation benchmark.
+
+## Structure
+
+- `src/extend_research/`: reusable Python package code
+- `configs/`: experiment configuration files
+- `scripts/`: command-line entry points for setup and experiments
+- `tests/`: automated tests
+- `notebooks/`: exploratory notebooks
+- `data/raw/`: source datasets, kept out of git by default
+- `data/processed/`: derived datasets, kept out of git by default
+- `results/`: experiment outputs, kept out of git by default
+- `docs/`: project notes and research documentation
+
+## Setup
+
+```bash
+cd extend_research
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install --upgrade pip
+python3 -m pip install -e ".[dev]"
+```
+
+For a minimal install:
+
+```bash
+python3 -m pip install -r requirements.txt
+```
+
+## Run
+
+```bash
+python3 scripts/run_experiment.py --config configs/default.json
+```
+
+## Test
+
+```bash
+pytest
+```

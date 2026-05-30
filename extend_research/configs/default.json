@@ -1,0 +1,18 @@
+{
+  "experiment_name": "baseline_extension",
+  "seed": 42,
+  "data": {
+    "raw_dir": "data/raw",
+    "processed_dir": "data/processed"
+  },
+  "model": {
+    "name": "baseline",
+    "embedding_dim": 64
+  },
+  "training": {
+    "epochs": 5,
+    "batch_size": 256,
+    "learning_rate": 0.001
+  },
+  "output_dir": "results"
+}
