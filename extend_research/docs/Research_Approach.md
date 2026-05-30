@@ -187,7 +187,7 @@ Two independent reviews of the CIKM submission both recommend acceptance and con
 
 1. **Pick the headline.** Default: ①+② combined (Full-Research best-paper play); ⑤ if going Resource-track; ③/④ as parallel independent papers.
 2. **For ②:** scope 3–4 new domains (Yelp / Steam / MIND / Goodreads), build a 4-method × ≥3-density × 5-seed matrix on each. Reuse `scripts/run_r{2,3}_retune*.py` via the dataset-branch recipe (data-dir / emb-dir branch per dataset).
-3. **For ①:** define the density→paradigm policy (threshold heuristic + learned meta-router); show selector ≥ best-fixed-paradigm on every held-out domain vs a no-oracle baseline.
+3. **For ①:** start with [`Experiment_V1_Density_Threshold_Selector.md`](Experiment_V1_Density_Threshold_Selector.md): a 2-expert threshold/soft-blend selector (`M7` + `R1`/`R1-plus`) tuned on validation before moving to the learned meta-router; then show selector ≥ best-fixed-paradigm on every held-out domain vs a no-oracle baseline.
 4. **Pre-register a falsification** before running (e.g., "if R1 fails to beat M7 by ≥+10% on any domain at int/item < 50, the regularizer-monotonicity claim is falsified").
 5. **First, run the two camera-ready items** (no-aggregate ablation; residual-ID replacer) — they de-risk both ① and ⑤ and become reusable analysis sections.
 6. **Reuse the isolated-workspace pattern** (`docs/ISOLATION.md`) for every direction; the CIKM/NeurIPS submissions stay frozen.
@@ -209,4 +209,3 @@ Two independent reviews of the CIKM submission both recommend acceptance and con
 - Parent index: [`../README.md`](../README.md) — workspace submission index. **Updating this README should sync the "Working dirs and follow-up projects" entry (and last-sync date) in the parent.**
 - Frozen submissions (read-only source / never touch): [`../neurips-2026-ed-track-llmmovielens/`](../neurips-2026-ed-track-llmmovielens/), [`../cikm-2026-llmmovielens/`](../cikm-2026-llmmovielens/).
 - d=32 legacy checkpoints (evidence reservoir): [`../r1-ml20m-old-hparams/`](../r1-ml20m-old-hparams/), [`../r1plus-ml20m-old-hparams/`](../r1plus-ml20m-old-hparams/).
-
