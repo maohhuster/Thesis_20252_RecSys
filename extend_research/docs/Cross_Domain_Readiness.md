@@ -44,14 +44,15 @@ Current local workspace status:
 |---|---|
 | Current reusable score-cache pipeline | ready for ML-20M / ML-1M / Amazon-style caches |
 | Cross-domain raw data | Steam downloaded locally; Yelp/Goodreads/MIND not downloaded |
+| Cross-domain normalized tables | Steam exported locally; Yelp/Goodreads/MIND not exported |
 | Cross-domain checkpoints | not available locally |
 | Cross-domain candidate caches | not available locally |
 | Existing result protocol | NDCG@10 / Recall@10 / MRR, 5 seeds, validation-selected blend |
 
 Implication:
 
-The next implementation phase should continue with Steam density design and
-normalized table export, not with a new router.
+The next implementation phase should continue with a Steam matrix smoke run and
+split policy selection, not with a new router.
 
 ## Dataset Readiness Table
 

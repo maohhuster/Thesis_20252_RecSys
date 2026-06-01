@@ -127,6 +127,14 @@ make cross-domain-steam-readiness
 
 The tracked Steam smoke plan is in `docs/Cross_Domain_Steam_Smoke.md`.
 
+Export Steam normalized tables and density regimes:
+
+```bash
+make cross-domain-steam-export
+```
+
+The tracked Steam density-design note is in `docs/Cross_Domain_Steam_Density_Design.md`.
+
 ## Test
 
 ```bash

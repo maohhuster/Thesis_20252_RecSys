@@ -1,0 +1,46 @@
+{
+  "experiment_name": "cross_domain_steam_export",
+  "description": "Export Steam raw files into normalized interaction/item tables and three k-core density regimes.",
+  "raw_dir": "data/raw/cross_domain/steam",
+  "processed_dir": "data/processed/cross_domain/steam",
+  "output_dir": "results/cross_domain_density_design/steam",
+  "files": {
+    "games": [
+      "steam_games.json.gz",
+      "steam_games.json",
+      "gamesAll.json.gz",
+      "gamesAll.json"
+    ],
+    "user_items": [
+      "australian_users_items.json.gz",
+      "australian_users_items.json"
+    ],
+    "reviews": [
+      "australian_user_reviews.json.gz",
+      "australian_user_reviews.json",
+      "steam_reviews.json.gz",
+      "steam_reviews.json"
+    ]
+  },
+  "limits": {
+    "max_game_records": 0,
+    "max_user_records": 0,
+    "max_review_records": 0,
+    "max_interactions": 2000000
+  },
+  "filters": {
+    "min_playtime_forever": 1,
+    "recommended_only": true
+  },
+  "regimes": [
+    {"name": "sparse", "min_user_degree": 5, "min_item_degree": 5},
+    {"name": "medium", "min_user_degree": 10, "min_item_degree": 10},
+    {"name": "dense", "min_user_degree": 20, "min_item_degree": 20}
+  ],
+  "notes": [
+    "User-item playtime is the primary implicit interaction source.",
+    "Review dates are attached only when the review has the same user_id and item_id.",
+    "Steam user-item playtime records do not include timestamps, so temporal split requires the review subset or a separate split policy.",
+    "The default export caps interactions at 2,000,000 for a first manageable density-design pass."
+  ]
+}
