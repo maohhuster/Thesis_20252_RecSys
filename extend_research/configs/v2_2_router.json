@@ -1,0 +1,54 @@
+{
+  "experiment_name": "v2_2_dataset_global_blend_router",
+  "description": "Select one dataset-level soft-blend weight by averaging validation metrics across seeds, then evaluate the same weight on every test seed.",
+  "candidate_cache_dir": "results/v2_candidate_cache",
+  "output_dir": "results/v2_2_router",
+  "top_k": 100,
+  "seeds": [42, 123, 456, 789, 2026],
+  "datasets": [
+    {
+      "name": "ML-20M",
+      "slug": "ml20m",
+      "enabled": true,
+      "grid": {
+        "step": 0.05,
+        "min": [0.6, 0.0, 0.0],
+        "max": [1.0, 0.4, 0.4]
+      }
+    },
+    {
+      "name": "ML-1M",
+      "slug": "ml1m",
+      "enabled": true,
+      "grid": {
+        "step": 0.05,
+        "min": [0.0, 0.35, 0.0],
+        "max": [0.0, 1.0, 0.65]
+      }
+    },
+    {
+      "name": "Amazon",
+      "slug": "amazon_books_2018",
+      "enabled": true,
+      "grid": {
+        "step": 0.05,
+        "min": [0.0, 0.4, 0.2],
+        "max": [0.0, 0.8, 0.6]
+      }
+    },
+    {
+      "name": "ML20M-sub163",
+      "slug": "ml20m_sub163",
+      "enabled": false,
+      "skip_reason": "Missing split/features/cache files."
+    }
+  ],
+  "model": {
+    "missing_score": -10.0
+  },
+  "notes": [
+    "V2.2 tests whether a dataset-level expert composition is more stable than per-seed validation tuning.",
+    "One blend weight is selected per dataset using mean validation NDCG@10 over all available seeds.",
+    "The selected weight is then evaluated unchanged on each seed's test split."
+  ]
+}

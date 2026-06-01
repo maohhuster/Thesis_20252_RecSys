@@ -1,4 +1,4 @@
-.PHONY: setup test lint run dts-v1 dts-v1b v2-cache v2-router clean
+.PHONY: setup test lint run dts-v1 dts-v1b v2-cache v2-router v2-1-router v2-2-router v2-2-segments clean
 
 setup:
 	python3 -m pip install --upgrade pip
@@ -24,6 +24,15 @@ v2-cache:
 
 v2-router:
 	python3 scripts/train_v2_router.py --config configs/v2_router.json
+
+v2-1-router:
+	python3 scripts/run_v2_1_refined_router.py --config configs/v2_1_router.json
+
+v2-2-router:
+	python3 scripts/run_v2_2_global_blend.py --config configs/v2_2_router.json
+
+v2-2-segments:
+	python3 scripts/analyze_v2_2_segments.py --config configs/v2_2_segment_analysis.json
 
 clean:
 	find . -type d -name "__pycache__" -prune -exec rm -rf {} +

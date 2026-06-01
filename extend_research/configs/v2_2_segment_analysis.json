@@ -1,0 +1,24 @@
+{
+  "experiment_name": "v2_2_segment_analysis",
+  "description": "Analyze where the V2.2 dataset-level global blend improves over fixed experts.",
+  "candidate_cache_dir": "results/v2_candidate_cache",
+  "selected_weights_path": "results/v2_2_router/v2_2_selected_weights.csv",
+  "output_dir": "results/v2_2_segments",
+  "top_k": 100,
+  "seeds": [42, 123, 456, 789, 2026],
+  "model": {
+    "missing_score": -10.0
+  },
+  "datasets": [
+    {"name": "ML-20M", "slug": "ml20m", "enabled": true},
+    {"name": "ML-1M", "slug": "ml1m", "enabled": true},
+    {"name": "Amazon", "slug": "amazon_books_2018", "enabled": true},
+    {"name": "ML20M-sub163", "slug": "ml20m_sub163", "enabled": false, "skip_reason": "Missing split/features/cache files."}
+  ],
+  "notes": [
+    "Segments are computed on each test cache.",
+    "User activity uses test users' train-history length tertiles.",
+    "Target popularity uses ground-truth item-degree tertiles.",
+    "Expert disagreement uses the average standard deviation of reciprocal ranks across experts for union candidates."
+  ]
+}

@@ -45,6 +45,22 @@ python3 scripts/analyze_dts_v1.py --config configs/dts_v1.json
 
 The tracked result summary is in `docs/DTS_V1_Initial_Results.md`.
 
+Run the current best blend-router experiment:
+
+```bash
+make v2-2-router
+```
+
+The tracked result summary is in `docs/V2_2_Dataset_Global_Blend.md`.
+
+Analyze where V2.2 helps:
+
+```bash
+make v2-2-segments
+```
+
+The tracked segment summary is in `docs/V2_2_Segment_Analysis.md`.
+
 ## Test
 
 ```bash
