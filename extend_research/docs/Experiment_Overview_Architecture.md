@@ -93,6 +93,7 @@ flowchart TD
     G --> K["V2.4 oracle gap"]
     K --> L["V3 action router"]
     L --> M["V3.1 pairwise gain router"]
+    M --> N["V4 segment-level blend"]
 ```
 
 ## 5. Vai Tro Tung Nhom Thi Nghiem
@@ -109,6 +110,7 @@ flowchart TD
 | V2.4 | Oracle gap | Co headroom lon cho adaptive routing, nhung chi la upper bound |
 | V2.5 | Leave-one-seed-out robustness | Amazon rat on dinh; ML-20M van duong; ML-1M neutral |
 | V3 / V3.1 | Hoc adaptive router tu oracle/gain labels | Chua vuot V2.2, dung lam diagnostic/future work |
+| V4 | Hoc blend weight theo segment deployable | Chi Amazon tang rat nho; ML-20M/ML-1M giam so voi V2.2 |
 
 ## 6. Ket Qua Chinh
 
@@ -164,11 +166,20 @@ Nhung V3/V3.1 chua bien headroom do thanh gain deployable:
 | ML-1M | 0.195024 | 0.188125 | 0.192643 |
 | Amazon | 0.076577 | 0.076529 | 0.076188 |
 
+V4 segment-level blend cung chua thay the duoc V2.2:
+
+| Dataset | V2.2 Blend | Best V4 Segment Blend | Delta vs V2.2 |
+|---|---:|---:|---:|
+| ML-20M | 0.120126 | 0.119249 | -0.000877 |
+| ML-1M | 0.195024 | 0.193918 | -0.001106 |
+| Amazon | 0.076577 | 0.076611 | +0.000034 |
+
 Doc chi tiet:
 
 - `docs/V2_4_Oracle_Gap.md`
 - `docs/V3_Action_Router_Initial_Result.md`
 - `docs/V3_1_Pairwise_Gain_Router.md`
+- `docs/V4_Segment_Level_Blend.md`
 
 ## 7. Cach Doc Ket Qua De Viet Bao Cao
 
@@ -198,6 +209,8 @@ Nen dua vao bai theo thu tu:
 
 - ML-1M khong nen claim la improved; nen viet la neutral/approximately unchanged.
 - V3/V3.1 khong phai ket qua chinh, vi deu kem V2.2.
+- V4 segment-level blend cung chua nen lam ket qua chinh; Amazon chi tang rat nho,
+  con ML-20M va ML-1M giam so voi V2.2.
 - Oracle gap khong phai ket qua deployable; no chi chung minh upper bound.
 - Khong nen claim cold-item improvement neu segment cold/warm con yeu hoac sparse.
 
@@ -210,4 +223,3 @@ can cu. Neu muon tiep tuc cai thien, nen uu tien:
 2. thu router o cap segment thay vi cap user don le;
 3. them feature ve uncertainty/disagreement cua expert;
 4. chi bao cao V3 neu no vuot V2.2 tren validation va test, khong chi vuot oracle-label accuracy.
-

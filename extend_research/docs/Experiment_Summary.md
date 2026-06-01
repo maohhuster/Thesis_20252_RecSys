@@ -97,17 +97,20 @@ V2.4 shows large oracle headroom:
 
 However, learned adaptive routers do not exploit that gap:
 
-| Dataset | V2.2 Blend | V3.0 Action Router | V3.1 Gain Router |
-|---|---:|---:|---:|
-| ML-20M | 0.120126 | 0.119572 | 0.116966 |
-| ML-1M | 0.195024 | 0.188125 | 0.192643 |
-| Amazon | 0.076577 | 0.076529 | 0.076188 |
+| Dataset | V2.2 Blend | V3.0 Action Router | V3.1 Gain Router | Best V4 Segment Blend |
+|---|---:|---:|---:|---:|
+| ML-20M | 0.120126 | 0.119572 | 0.116966 | 0.119249 |
+| ML-1M | 0.195024 | 0.188125 | 0.192643 | 0.193918 |
+| Amazon | 0.076577 | 0.076529 | 0.076188 | 0.076611 |
 
 Interpretation:
 
 - The oracle gap is real, but per-user oracle labels/gain labels are too noisy for
   the current feature set.
-- V3.0 and V3.1 should be treated as diagnostics/future work, not as main methods.
+- V3.0, V3.1, and V4 should be treated as diagnostics/future work, not as main
+  methods.
+- V4 gives only a tiny Amazon gain over V2.2 and reduces ML-20M/ML-1M, so it does
+  not replace the global blend.
 - The best deployable method remains V2.2.
 
 ## Suggested Thesis Narrative
@@ -145,6 +148,7 @@ Avoid claiming:
 
 Core result docs:
 
+- `docs/Final_Results_For_Report.md`
 - `docs/V2_2_Dataset_Global_Blend.md`
 - `docs/V2_3_Bootstrap_Significance.md`
 - `docs/V2_5_LOSO_Global_Blend.md`
@@ -155,6 +159,7 @@ Diagnostic/future-work docs:
 - `docs/V2_4_Oracle_Gap.md`
 - `docs/V3_Action_Router_Initial_Result.md`
 - `docs/V3_1_Pairwise_Gain_Router.md`
+- `docs/V4_Segment_Level_Blend.md`
 
 Recommended method to report:
 

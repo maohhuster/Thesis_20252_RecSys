@@ -1,0 +1,60 @@
+{
+  "experiment_name": "v4_segment_level_blend",
+  "description": "Select blend weights per deployable user segment and compare against V2.2 dataset-level global blend.",
+  "candidate_cache_dir": "results/v2_candidate_cache",
+  "output_dir": "results/v4_segment_level_blend",
+  "top_k": 100,
+  "seeds": [42, 123, 456, 789, 2026],
+  "segment_strategies": [
+    "user_activity",
+    "expert_disagreement",
+    "user_activity_x_expert_disagreement"
+  ],
+  "min_val_users_per_segment": 200,
+  "datasets": [
+    {
+      "name": "ML-20M",
+      "slug": "ml20m",
+      "enabled": true,
+      "grid": {
+        "step": 0.05,
+        "min": [0.6, 0.0, 0.0],
+        "max": [1.0, 0.4, 0.4]
+      }
+    },
+    {
+      "name": "ML-1M",
+      "slug": "ml1m",
+      "enabled": true,
+      "grid": {
+        "step": 0.05,
+        "min": [0.0, 0.35, 0.0],
+        "max": [0.0, 1.0, 0.65]
+      }
+    },
+    {
+      "name": "Amazon",
+      "slug": "amazon_books_2018",
+      "enabled": true,
+      "grid": {
+        "step": 0.05,
+        "min": [0.0, 0.4, 0.2],
+        "max": [0.0, 0.8, 0.6]
+      }
+    },
+    {
+      "name": "ML20M-sub163",
+      "slug": "ml20m_sub163",
+      "enabled": false,
+      "skip_reason": "Missing split/features/cache files."
+    }
+  ],
+  "model": {
+    "missing_score": -10.0
+  },
+  "notes": [
+    "This experiment intentionally avoids target-popularity segments because ground-truth target items are not known at deployment time.",
+    "Segment thresholds are fitted only on validation caches, then applied unchanged to test caches.",
+    "Segments with too few validation users fall back to the dataset-level global weight."
+  ]
+}

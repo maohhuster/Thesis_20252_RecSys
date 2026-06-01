@@ -1,4 +1,4 @@
-.PHONY: setup test lint run dts-v1 dts-v1b v2-cache v2-router v2-1-router v2-2-router v2-2-segments v2-3-bootstrap v2-4-oracle v2-5-loso v3-router v3-1-router clean
+.PHONY: setup test lint run dts-v1 dts-v1b v2-cache v2-router v2-1-router v2-2-router v2-2-segments v2-3-bootstrap v2-4-oracle v2-5-loso v3-router v3-1-router v4-segment-blend clean
 
 setup:
 	python3 -m pip install --upgrade pip
@@ -48,6 +48,9 @@ v3-router:
 
 v3-1-router:
 	python3 scripts/run_v3_1_pairwise_gain_router.py --config configs/v3_1_pairwise_gain_router.json
+
+v4-segment-blend:
+	python3 scripts/run_v4_segment_level_blend.py --config configs/v4_segment_level_blend.json
 
 clean:
 	find . -type d -name "__pycache__" -prune -exec rm -rf {} +

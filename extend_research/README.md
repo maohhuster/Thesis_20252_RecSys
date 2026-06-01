@@ -38,6 +38,7 @@ Read the current experiment narrative and recommended reporting path:
 ```text
 docs/Experiment_Summary.md
 docs/Experiment_Overview_Architecture.md
+docs/Final_Results_For_Report.md
 ```
 
 ```bash
@@ -107,6 +108,14 @@ make v3-1-router
 ```
 
 The tracked V3.1 diagnostic summary is in `docs/V3_1_Pairwise_Gain_Router.md`.
+
+Run deployable segment-level blend diagnostics:
+
+```bash
+make v4-segment-blend
+```
+
+The tracked V4 diagnostic summary is in `docs/V4_Segment_Level_Blend.md`.
 
 ## Test
 
