@@ -39,6 +39,8 @@ Read the current experiment narrative and recommended reporting path:
 docs/Experiment_Summary.md
 docs/Experiment_Overview_Architecture.md
 docs/Final_Results_For_Report.md
+docs/Next_Research_Strategy.md
+docs/Cross_Domain_Readiness.md
 ```
 
 ```bash
