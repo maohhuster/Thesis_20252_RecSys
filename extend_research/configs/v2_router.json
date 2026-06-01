@@ -1,0 +1,31 @@
+{
+  "experiment_name": "v2_candidate_blend_router",
+  "description": "Select a lightweight soft blend over cached top-K expert candidates.",
+  "candidate_cache_dir": "results/v2_candidate_cache",
+  "output_dir": "results/v2_router",
+  "top_k": 100,
+  "seeds": [42, 123, 456, 789, 2026],
+  "datasets": [
+    {"name": "ML-20M", "slug": "ml20m", "enabled": true},
+    {"name": "ML-1M", "slug": "ml1m", "enabled": true},
+    {"name": "Amazon", "slug": "amazon_books_2018", "enabled": true},
+    {"name": "ML20M-sub163", "slug": "ml20m_sub163", "enabled": false, "skip_reason": "Missing cache files."}
+  ],
+  "model": {
+    "type": "sgd_logistic",
+    "class_weight": "balanced",
+    "alpha": 0.0001,
+    "max_iter": 30,
+    "tol": 0.0001,
+    "max_train_negatives_per_user": 80,
+    "missing_score": -10.0,
+    "blend_grid_step": 0.2,
+    "run_logistic": false
+  },
+  "notes": [
+    "Train on validation cache and evaluate once on test cache per dataset/seed.",
+    "Candidate set is the union of M7, R1, and R1-plus top-K items.",
+    "This is the first V2 router baseline; it does not retrain expert recommenders.",
+    "Use a coarse 0.2 soft-blend grid for the first full-dataset run, then refine around promising regions if needed."
+  ]
+}

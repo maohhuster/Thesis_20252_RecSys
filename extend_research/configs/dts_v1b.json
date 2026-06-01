@@ -1,0 +1,60 @@
+{
+  "experiment_name": "dts_v1b_threshold_reranking",
+  "description": "Per-item density threshold routing on datasets with available checkpoints and data.",
+  "output_dir": "results/dts_v1b/routing",
+  "selection_metric": "NDCG@10",
+  "top_k": [10, 20, 50],
+  "batch_size": 512,
+  "device": "cpu",
+  "seeds": [42, 123, 456, 789, 2026],
+  "experts": ["M7", "R1", "R1-plus"],
+  "thresholds": [5, 10, 20, 50, 100, 200, 500],
+  "two_thresholds": [
+    [5, 20],
+    [5, 50],
+    [10, 50],
+    [10, 100],
+    [20, 100],
+    [20, 200],
+    [50, 200],
+    [50, 500],
+    [100, 500],
+    [200, 500]
+  ],
+  "datasets": [
+    {
+      "name": "ML-20M",
+      "slug": "ml20m",
+      "checkpoint_config": "configs/ml20m_checkpoint_paths.json",
+      "data_config": "configs/ml20m_data_paths.json",
+      "enabled": true
+    },
+    {
+      "name": "ML-1M",
+      "slug": "ml1m",
+      "checkpoint_config": "configs/ml1m_checkpoint_paths.json",
+      "data_config": "configs/ml1m_data_paths.json",
+      "enabled": true
+    },
+    {
+      "name": "Amazon",
+      "slug": "amazon_books_2018",
+      "checkpoint_config": "configs/amazon_checkpoint_paths.json",
+      "data_config": "configs/amazon_data_paths.json",
+      "enabled": true
+    },
+    {
+      "name": "ML20M-sub163",
+      "slug": "ml20m_sub163",
+      "checkpoint_config": "configs/ml20m_sub163_checkpoint_paths.json",
+      "data_config": "configs/ml20m_sub163_data_paths.json",
+      "enabled": false,
+      "skip_reason": "Missing split and feature files."
+    }
+  ],
+  "notes": [
+    "Tune policy on validation split per dataset/seed, then report selected policy on test.",
+    "Routing scores use per-user z-score normalization for each expert before item-level score selection.",
+    "ML20M-sub163 is disabled until its split and aligned features are supplied."
+  ]
+}

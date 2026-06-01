@@ -1,0 +1,47 @@
+{
+  "experiment_name": "v2_candidate_score_cache",
+  "description": "Top-K candidate and normalized score cache for V2 context-aware router.",
+  "output_dir": "results/v2_candidate_cache",
+  "top_k": 100,
+  "batch_size": 512,
+  "device": "cpu",
+  "seeds": [42, 123, 456, 789, 2026],
+  "splits": ["val", "test"],
+  "experts": ["M7", "R1", "R1-plus"],
+  "datasets": [
+    {
+      "name": "ML-20M",
+      "slug": "ml20m",
+      "checkpoint_config": "configs/ml20m_checkpoint_paths.json",
+      "data_config": "configs/ml20m_data_paths.json",
+      "enabled": true
+    },
+    {
+      "name": "ML-1M",
+      "slug": "ml1m",
+      "checkpoint_config": "configs/ml1m_checkpoint_paths.json",
+      "data_config": "configs/ml1m_data_paths.json",
+      "enabled": true
+    },
+    {
+      "name": "Amazon",
+      "slug": "amazon_books_2018",
+      "checkpoint_config": "configs/amazon_checkpoint_paths.json",
+      "data_config": "configs/amazon_data_paths.json",
+      "enabled": true
+    },
+    {
+      "name": "ML20M-sub163",
+      "slug": "ml20m_sub163",
+      "checkpoint_config": "configs/ml20m_sub163_checkpoint_paths.json",
+      "data_config": "configs/ml20m_sub163_data_paths.json",
+      "enabled": false,
+      "skip_reason": "Missing split and feature files."
+    }
+  ],
+  "notes": [
+    "Scores are per-user z-score normalized before train-history masking and top-K extraction.",
+    "Each NPZ stores per-expert top_items/top_scores plus item_degree, user_history_len, and held-out positives in CSR form.",
+    "The cache is local-only under results/ and ignored by git."
+  ]
+}

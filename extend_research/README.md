@@ -37,6 +37,14 @@ python3 -m pip install -r requirements.txt
 python3 scripts/run_experiment.py --config configs/default.json
 ```
 
+Run the DTS-v1 aggregate diagnostic:
+
+```bash
+python3 scripts/analyze_dts_v1.py --config configs/dts_v1.json
+```
+
+The tracked result summary is in `docs/DTS_V1_Initial_Results.md`.
+
 ## Test
 
 ```bash

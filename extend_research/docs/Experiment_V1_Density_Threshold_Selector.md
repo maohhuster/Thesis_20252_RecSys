@@ -1,7 +1,7 @@
 # Thí nghiệm V1 — Density Threshold Selector
 
 **Tên ngắn:** DTS-v1  
-**Trạng thái:** Thiết kế thí nghiệm, chưa triển khai code  
+**Trạng thái:** V1a aggregate diagnostic đã được triển khai; V1b per-user reranking chưa triển khai  
 **Mục tiêu:** Kiểm tra nhanh xem quy luật density-paradigm trong bài CIKM có thể khai thác thành một selector đơn giản hay không, trước khi đầu tư vào Meta-Router MLP.
 
 ---
@@ -214,14 +214,24 @@ Phiên bản 2-threshold:
 
 ```python
 if item_degree < T1:
-    use R1_plus
-elif item_degree < T2:
     use R1
+elif item_degree < T2:
+    use R1_plus
 else:
     use M7
 ```
 
 Chỉ giữ phiên bản 2-threshold nếu validation chứng minh tốt hơn rõ ràng.
+
+Policy aggregate đầu tiên được kiểm tra trong V1a:
+
+```text
+density < 200       -> R1
+200 <= density <500 -> R1-plus
+density >= 500      -> M7
+```
+
+Lưu ý: policy này được đề xuất từ phân tích 4 datapoint hiện có, nên chỉ là diagnostic. Không được claim là method tổng quát cho đến khi test trên held-out domain hoặc reranking validation/test thật.
 
 ### 7.3 Soft density blend
 
@@ -569,6 +579,37 @@ Create bucket table if bucket results are available.
 Compute oracle upper bound at aggregate level.
 ```
 
+Trạng thái hiện tại: **đã implement**.
+
+Chạy từ `extend_research/`:
+
+```bash
+python3 scripts/analyze_dts_v1.py --config configs/dts_v1.json
+```
+
+Hoặc:
+
+```bash
+make dts-v1
+```
+
+Output:
+
+```text
+results/dts_v1/expert_table.csv
+results/dts_v1/policy_summary.csv
+results/dts_v1/policy_decisions.csv
+results/dts_v1/ml20m_bucket_table.csv
+results/dts_v1/dts_v1_report.json
+results/dts_v1/DTS_V1_Results.md
+```
+
+Tracked summary:
+
+```text
+docs/DTS_V1_Initial_Results.md
+```
+
 ### Step 2 — Score export check
 
 ```text
@@ -576,6 +617,30 @@ Check whether checkpoints can produce score_all(users, items).
 If yes, implement actual selector.
 If no, first implement evaluator/exporter for M7/R1/R1-plus scores.
 ```
+
+Trạng thái hiện tại: **ML-20M đã có checkpoint local; các dataset còn lại chưa có**.
+
+Manifest ML-20M:
+
+```text
+configs/ml20m_checkpoint_paths.json
+configs/ml20m_data_paths.json
+```
+
+Checkpoint local:
+
+```text
+data/raw/checkpoints/ml20m_downloads/
+```
+
+V1b cần một trong hai loại artifact cho mỗi dataset:
+
+```text
+1. Checkpoint M7/R1/R1-plus cho từng seed và dataset.
+2. Score dump per-user/per-item hoặc top-K candidate scores từ từng expert.
+```
+
+Nếu không có các artifact này, chỉ có thể chạy V1a aggregate diagnostic, chưa thể tạo ranking DTS thật.
 
 ### Step 3 — Hard selector
 

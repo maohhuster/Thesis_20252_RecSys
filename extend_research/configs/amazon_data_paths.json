@@ -1,0 +1,45 @@
+{
+  "dataset": "Amazon",
+  "hf_dataset_name": "amazon_books_2018",
+  "hf_root": "data/raw/hf/llm-movielens",
+  "data_dir": "data/raw/hf/llm-movielens/benchmark_splits/amazon_books_2018",
+  "embedding_dir": "data/raw/hf/llm-movielens/embeddings/amazon_books_2018/bge-large-en-v1.5",
+  "splits": {
+    "train": "data/raw/hf/llm-movielens/benchmark_splits/amazon_books_2018/train.csv",
+    "val": "data/raw/hf/llm-movielens/benchmark_splits/amazon_books_2018/val.csv",
+    "test": "data/raw/hf/llm-movielens/benchmark_splits/amazon_books_2018/test.csv"
+  },
+  "maps": {
+    "movie_id_index": "data/raw/hf/llm-movielens/embeddings/amazon_books_2018/bge-large-en-v1.5/movie_id_index.json",
+    "item_map": null,
+    "user_map": null
+  },
+  "features": {
+    "profile": "data/raw/hf/llm-movielens/embeddings/amazon_books_2018/bge-large-en-v1.5/profile_embeddings.npy",
+    "mood": "data/raw/hf/llm-movielens/embeddings/amazon_books_2018/bge-large-en-v1.5/mood_vectors.npy",
+    "profile_mood": "data/raw/hf/llm-movielens/embeddings/amazon_books_2018/bge-large-en-v1.5/combined_features.npy",
+    "all_llm": "data/raw/hf/llm-movielens/embeddings/amazon_books_2018/bge-large-en-v1.5/combined_full.npy",
+    "themes": "data/raw/hf/llm-movielens/embeddings/amazon_books_2018/bge-large-en-v1.5/theme_matrix.npy"
+  },
+  "verified_shapes": {
+    "profile_embeddings.npy": [9289, 1024],
+    "mood_vectors.npy": [9289, 10],
+    "combined_features.npy": [9289, 1034],
+    "combined_full.npy": [9289, 1552],
+    "theme_matrix.npy": [9289, 518],
+    "movie_id_index.json": 9289
+  },
+  "verified_split_rows": {
+    "train.csv": 120464,
+    "val.csv": 40290,
+    "test.csv": 40106,
+    "n_users": 11000,
+    "n_items": 9332
+  },
+  "notes": [
+    "Amazon split IDs are already contiguous: userId range 0..10999 and movieId range 0..9331.",
+    "HF release does not include item_map.json or user_map.json for Amazon; code should synthesize identity maps when needed.",
+    "Embedding files cover 9289/9332 items. The remaining 43 items require zero-vector padding, matching the original preparation script.",
+    "M7 checkpoints expect 9332 items and feature dimension 1034 after alignment/padding."
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "dataset": "ML-1M",
+  "hf_dataset_name": "ml1m",
+  "hf_root": "data/raw/hf/llm-movielens",
+  "data_dir": "data/raw/hf/llm-movielens/benchmark_splits/ml1m",
+  "embedding_dir": "data/raw/hf/llm-movielens/embeddings/ml1m/bge-large-en-v1.5",
+  "splits": {
+    "train": "data/raw/hf/llm-movielens/benchmark_splits/ml1m/train.csv",
+    "val": "data/raw/hf/llm-movielens/benchmark_splits/ml1m/val.csv",
+    "test": "data/raw/hf/llm-movielens/benchmark_splits/ml1m/test.csv"
+  },
+  "maps": {
+    "user_map": "data/raw/hf/llm-movielens/benchmark_splits/ml1m/user_map.json",
+    "item_map": "data/raw/hf/llm-movielens/benchmark_splits/ml1m/item_map.json",
+    "movie_id_index": "data/raw/hf/llm-movielens/embeddings/ml1m/bge-large-en-v1.5/movie_id_index.json"
+  },
+  "features": {
+    "profile": "data/raw/hf/llm-movielens/embeddings/ml1m/bge-large-en-v1.5/profile_embeddings.npy",
+    "mood": "data/raw/hf/llm-movielens/embeddings/ml1m/bge-large-en-v1.5/mood_vectors.npy",
+    "profile_mood": "data/raw/hf/llm-movielens/embeddings/ml1m/bge-large-en-v1.5/combined_features.npy",
+    "all_llm": "data/raw/hf/llm-movielens/embeddings/ml1m/bge-large-en-v1.5/combined_full.npy",
+    "themes": "data/raw/hf/llm-movielens/embeddings/ml1m/bge-large-en-v1.5/theme_matrix.npy"
+  },
+  "verified_shapes": {
+    "profile_embeddings.npy": [2807, 1024],
+    "mood_vectors.npy": [2807, 10],
+    "combined_features.npy": [2807, 1034],
+    "combined_full.npy": [2807, 1562],
+    "theme_matrix.npy": [2807, 528],
+    "movie_id_index.json": 2807
+  },
+  "verified_split_rows": {
+    "train.csv": 457224,
+    "val.csv": 13562,
+    "test.csv": 42982,
+    "item_map.json": 2807,
+    "user_map.json": 5293
+  },
+  "notes": [
+    "Files are local-only under data/raw and ignored by git.",
+    "M7 checkpoints expect 2807 items and feature dimension 1034.",
+    "R1/R1-plus checkpoints expect 5293 users, 2807 items, and 1024-d profile embeddings for their training-side semantic path."
+  ]
+}

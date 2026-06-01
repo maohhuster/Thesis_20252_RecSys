@@ -1,0 +1,50 @@
+{
+  "experiment_name": "dts_v1_aggregate_diagnostic",
+  "description": "V1a aggregate diagnostic for the Density Threshold Selector.",
+  "benchmark_root": "../../code/benchmark",
+  "output_dir": "results/dts_v1",
+  "selection_metric": "NDCG@10",
+  "datasets": [
+    {
+      "name": "ML-20M",
+      "density": 1160,
+      "result_dir": "results",
+      "file_suffix": ""
+    },
+    {
+      "name": "sub163",
+      "density": 225,
+      "result_dir": "results_ml20m_sub163",
+      "file_suffix": "_ml20m_sub163"
+    },
+    {
+      "name": "ML-1M",
+      "density": 163,
+      "result_dir": "results_ml1m",
+      "file_suffix": "_ml1m"
+    },
+    {
+      "name": "Amazon",
+      "density": 13,
+      "result_dir": "results_amazon",
+      "file_suffix": "_amazon"
+    }
+  ],
+  "experts": ["M7", "R1", "R1-plus", "R2", "R3"],
+  "primary_regularizers": ["R1", "R1-plus"],
+  "thresholds": [5, 10, 20, 50, 100, 200, 500],
+  "two_threshold_policies": [
+    {
+      "name": "DTS-2T-R1-R1plus-M7-T200-T500",
+      "low_threshold": 200,
+      "high_threshold": 500,
+      "low_expert": "R1",
+      "mid_expert": "R1-plus",
+      "high_expert": "M7"
+    }
+  ],
+  "bucket_thresholds": {
+    "cold": 10,
+    "medium": 50
+  }
+}

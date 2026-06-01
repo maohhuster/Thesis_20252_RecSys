@@ -1,0 +1,46 @@
+{
+  "dataset": "ML-20M",
+  "hf_root": "data/raw/hf/llm-movielens",
+  "data_dir": "data/raw/hf/llm-movielens/benchmark_splits/ml20m",
+  "embedding_dir": "data/raw/hf/llm-movielens/embeddings/ml20m/bge-large-en-v1.5",
+  "splits": {
+    "train": "data/raw/hf/llm-movielens/benchmark_splits/ml20m/train.csv",
+    "val": "data/raw/hf/llm-movielens/benchmark_splits/ml20m/val.csv",
+    "test": "data/raw/hf/llm-movielens/benchmark_splits/ml20m/test.csv"
+  },
+  "maps": {
+    "user_map": "data/raw/hf/llm-movielens/benchmark_splits/ml20m/user_map.json",
+    "item_map": "data/raw/hf/llm-movielens/benchmark_splits/ml20m/item_map.json",
+    "movie_id_index": "data/raw/hf/llm-movielens/embeddings/ml20m/bge-large-en-v1.5/movie_id_index.json"
+  },
+  "features": {
+    "profile": "data/raw/hf/llm-movielens/embeddings/ml20m/bge-large-en-v1.5/profile_embeddings.npy",
+    "mood": "data/raw/hf/llm-movielens/embeddings/ml20m/bge-large-en-v1.5/mood_vectors.npy",
+    "profile_mood": "data/raw/hf/llm-movielens/embeddings/ml20m/bge-large-en-v1.5/combined_features.npy",
+    "all_llm": "data/raw/hf/llm-movielens/embeddings/ml20m/bge-large-en-v1.5/combined_full.npy",
+    "themes": "data/raw/hf/llm-movielens/embeddings/ml20m/bge-large-en-v1.5/theme_matrix.npy",
+    "genome": "data/raw/hf/llm-movielens/embeddings/ml20m/bge-large-en-v1.5/genome_embeddings.npy",
+    "bert_title": "data/raw/hf/llm-movielens/embeddings/ml20m/bge-large-en-v1.5/bert_title_embeddings.npy"
+  },
+  "verified_shapes": {
+    "profile_embeddings.npy": [10381, 1024],
+    "mood_vectors.npy": [10381, 10],
+    "combined_features.npy": [10381, 1034],
+    "combined_full.npy": [10381, 1562],
+    "theme_matrix.npy": [10381, 528],
+    "genome_embeddings.npy": [10381, 128],
+    "bert_title_embeddings.npy": [10381, 1024]
+  },
+  "verified_split_rows": {
+    "train.csv": 11499778,
+    "val.csv": 49668,
+    "test.csv": 67466,
+    "item_map.json": 9906,
+    "user_map.json": 127371
+  },
+  "notes": [
+    "Files are local-only under data/raw and ignored by git.",
+    "These paths are used together with configs/ml20m_checkpoint_paths.json for V1b score export and reranking.",
+    "M7 checkpoints expect 9906 benchmark items and feature dimension 1034 after alignment."
+  ]
+}

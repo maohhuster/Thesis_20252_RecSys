@@ -1,0 +1,35 @@
+{
+  "dataset": "ML20M-sub163",
+  "hf_dataset_name": null,
+  "status": "missing_required_data",
+  "expected_checkpoint_shapes": {
+    "n_users": 17711,
+    "n_items": 7129,
+    "m7_feature_dim": 1034,
+    "rlmrec_profile_dim": 128
+  },
+  "required_files": {
+    "splits": [
+      "train.csv",
+      "val.csv",
+      "test.csv",
+      "stats.json"
+    ],
+    "mapping": [
+      "subsampled_to_ml20m_movieId.json or equivalent item-id mapping"
+    ],
+    "features": [
+      "profile/mood or profile_mood features aligned to 7129 sub163 item IDs"
+    ]
+  },
+  "checked_locations": [
+    "extend_research/data/raw/hf/llm-movielens/benchmark_splits/ml20m_sub163",
+    "extend_research/data/raw/hf/llm-movielens/embeddings/ml20m_sub163/bge-large-en-v1.5",
+    "Hugging Face dataset anonyauthor4review/llm-movielens"
+  ],
+  "notes": [
+    "The local checkpoints for ML20M-sub163 are present, but matching split and feature files are not present locally.",
+    "The Hugging Face dataset file list does not include ML20M-sub163 splits or embeddings.",
+    "Do not run reranking/evaluation for this dataset until the required split and alignment files are supplied or regenerated."
+  ]
+}

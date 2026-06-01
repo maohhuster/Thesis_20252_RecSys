@@ -1,0 +1,56 @@
+{
+  "dataset": "ML20M-sub163",
+  "checkpoint_root": "data/raw/checkpoints/ml20m_sub163_downloads",
+  "seeds": [42, 123, 456, 789, 2026],
+  "experts": {
+    "M7": {
+      "model_family": "LightGCN-SF",
+      "feature_config": "llm_prof_mood",
+      "embedding_size": 128,
+      "paths": {
+        "42": "data/raw/checkpoints/ml20m_sub163_downloads/m7/bge-large-en-v1.5/seed-42/best_model.pt",
+        "123": "data/raw/checkpoints/ml20m_sub163_downloads/m7/bge-large-en-v1.5/seed-123/best_model.pt",
+        "456": "data/raw/checkpoints/ml20m_sub163_downloads/m7/bge-large-en-v1.5/seed-456/best_model.pt",
+        "789": "data/raw/checkpoints/ml20m_sub163_downloads/m7/bge-large-en-v1.5/seed-789/best_model.pt",
+        "2026": "data/raw/checkpoints/ml20m_sub163_downloads/m7/bge-large-en-v1.5/seed-2026/best_model.pt"
+      }
+    },
+    "R1": {
+      "model_family": "RLMRec-gene",
+      "embedding_size": 32,
+      "paths": {
+        "42": "data/raw/checkpoints/ml20m_sub163_downloads/r1/bge-large-en-v1.5/seed-42/best_model.pt",
+        "123": "data/raw/checkpoints/ml20m_sub163_downloads/r1/bge-large-en-v1.5/seed-123/best_model.pt",
+        "456": "data/raw/checkpoints/ml20m_sub163_downloads/r1/bge-large-en-v1.5/seed-456/best_model.pt",
+        "789": "data/raw/checkpoints/ml20m_sub163_downloads/r1/bge-large-en-v1.5/seed-789/best_model.pt",
+        "2026": "data/raw/checkpoints/ml20m_sub163_downloads/r1/bge-large-en-v1.5/seed-2026/best_model.pt"
+      }
+    },
+    "R1-plus": {
+      "model_family": "RLMRec-plus",
+      "embedding_size": 32,
+      "paths": {
+        "42": "data/raw/checkpoints/ml20m_sub163_downloads/r1plus/bge-large-en-v1.5/seed-42/best_model.pt",
+        "123": "data/raw/checkpoints/ml20m_sub163_downloads/r1plus/bge-large-en-v1.5/seed-123/best_model.pt",
+        "456": "data/raw/checkpoints/ml20m_sub163_downloads/r1plus/bge-large-en-v1.5/seed-456/best_model.pt",
+        "789": "data/raw/checkpoints/ml20m_sub163_downloads/r1plus/bge-large-en-v1.5/seed-789/best_model.pt",
+        "2026": "data/raw/checkpoints/ml20m_sub163_downloads/r1plus/bge-large-en-v1.5/seed-2026/best_model.pt"
+      }
+    }
+  },
+  "verified_shapes": {
+    "n_users": 17711,
+    "n_items": 7129,
+    "m7_embedding_size": 128,
+    "rlmrec_embedding_size": 32,
+    "m7_feature_dim": 1034,
+    "rlmrec_profile_dim": 128
+  },
+  "notes": [
+    "Checkpoint files are local-only under data/raw and ignored by git.",
+    "All expert checkpoint files use best_model.pt.",
+    "M7 uses profile+mood side features with feature dimension 1034.",
+    "R1 and R1-plus use upstream-native RLMRec d=32 checkpoints.",
+    "RLMRec profile dimension is 128 on this sub163 checkpoint family."
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "dataset": "ML-20M",
+  "checkpoint_root": "data/raw/checkpoints/ml20m_downloads",
+  "seeds": [42, 123, 456, 789, 2026],
+  "experts": {
+    "M7": {
+      "model_family": "LightGCN-SF",
+      "feature_config": "llm_prof_mood",
+      "paths": {
+        "42": "data/raw/checkpoints/ml20m_downloads/ML20M_M7/m7-seed-42/best_model.pt",
+        "123": "data/raw/checkpoints/ml20m_downloads/ML20M_M7/m7-seed-123/best_model.pt",
+        "456": "data/raw/checkpoints/ml20m_downloads/ML20M_M7/m7-seed-456/best_model.pt",
+        "789": "data/raw/checkpoints/ml20m_downloads/ML20M_M7/m7-seed-789/best_model.pt",
+        "2026": "data/raw/checkpoints/ml20m_downloads/ML20M_M7/m7-seed-2026/best_model.pt"
+      }
+    },
+    "R1": {
+      "model_family": "RLMRec-gene",
+      "paths": {
+        "42": "data/raw/checkpoints/ml20m_downloads/ML20M_R1/r1-seed-42/best_model.pt",
+        "123": "data/raw/checkpoints/ml20m_downloads/ML20M_R1/r1-seed-123/best_model.pt",
+        "456": "data/raw/checkpoints/ml20m_downloads/ML20M_R1/r1-seed-456/best_model.pt",
+        "789": "data/raw/checkpoints/ml20m_downloads/ML20M_R1/r1-seed-789/best_model.pt",
+        "2026": "data/raw/checkpoints/ml20m_downloads/ML20M_R1/r1-seed-2026/best_model.pt"
+      }
+    },
+    "R1-plus": {
+      "model_family": "RLMRec-plus",
+      "paths": {
+        "42": "data/raw/checkpoints/ml20m_downloads/ML20M_R1-plus/seed-42/best_model.pth",
+        "123": "data/raw/checkpoints/ml20m_downloads/ML20M_R1-plus/seed-123/best_model.pth",
+        "456": "data/raw/checkpoints/ml20m_downloads/ML20M_R1-plus/seed-456/best_model.pth",
+        "789": "data/raw/checkpoints/ml20m_downloads/ML20M_R1-plus/seed-789/best_model.pth",
+        "2026": "data/raw/checkpoints/ml20m_downloads/ML20M_R1-plus/seed-2026/best_model.pth"
+      }
+    }
+  },
+  "notes": [
+    "Checkpoint files are local-only under data/raw and ignored by git.",
+    "R1-plus uses .pth files; M7 and R1 use .pt files.",
+    "This manifest is for V1b score export / reranking on ML-20M."
+  ]
+}
