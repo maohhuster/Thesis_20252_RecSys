@@ -55,9 +55,40 @@ Source:
 
 ## Current Local Status
 
-At the time this smoke plan was written, no Steam raw data was present locally.
-Therefore the script is expected to report `missing_raw_data` until the raw files
-are placed under `data/raw/cross_domain/steam/`.
+Steam raw data has been downloaded locally under:
+
+```text
+data/raw/cross_domain/steam/
+```
+
+Downloaded files:
+
+```text
+australian_user_reviews.json.gz
+australian_users_items.json.gz
+steam_games.json.gz
+```
+
+These files are raw data and are intentionally kept out of git.
+
+Latest smoke status: `ready_for_density_design`.
+
+Observed smoke statistics:
+
+| Metric | Value |
+|---|---:|
+| game metadata records scanned | 32,135 |
+| unique item ids in metadata | 32,132 |
+| metadata title coverage | 0.999938 |
+| metadata text coverage | 0.999969 |
+| sampled interactions | 1,000,000 |
+| users in sampled interactions | 13,368 |
+| items in sampled interactions | 8,865 |
+| sampled density | 0.00843830 |
+
+The current smoke is capped at 1,000,000 interactions by
+`configs/cross_domain_steam_readiness.json`, so these are readiness statistics,
+not final full-dataset statistics.
 
 ## Command
 
@@ -75,12 +106,12 @@ python3 scripts/inspect_cross_domain_steam.py --config configs/cross_domain_stea
 
 Steam is ready for density design if the smoke report confirms:
 
-- game metadata file found;
-- user/item interaction file found;
-- non-zero users/items/interactions;
-- metadata title coverage is high;
+- game metadata file found: **yes**;
+- user/item interaction file found: **yes**;
+- non-zero users/items/interactions: **yes**;
+- metadata title coverage is high: **yes**;
 - at least three plausible density regimes can be produced by k-core or
-  interaction-per-item filtering.
+  interaction-per-item filtering: **likely**, based on k-core estimates.
 
 ## Next Step After Success
 
@@ -91,3 +122,7 @@ If Steam passes smoke:
 3. export normalized `interactions` and `items` tables;
 4. only then build candidate score caches and run the cross-domain density matrix.
 
+Recommended immediate next step:
+
+> Implement Steam density-design/export script that turns the raw files into
+> normalized `interactions` and `items` tables for three density regimes.

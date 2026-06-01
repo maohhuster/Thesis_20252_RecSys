@@ -43,15 +43,15 @@ Current local workspace status:
 | Asset | Status |
 |---|---|
 | Current reusable score-cache pipeline | ready for ML-20M / ML-1M / Amazon-style caches |
-| Cross-domain raw data | not downloaded locally |
+| Cross-domain raw data | Steam downloaded locally; Yelp/Goodreads/MIND not downloaded |
 | Cross-domain checkpoints | not available locally |
 | Cross-domain candidate caches | not available locally |
 | Existing result protocol | NDCG@10 / Recall@10 / MRR, 5 seeds, validation-selected blend |
 
 Implication:
 
-The next implementation phase should begin with dataset adapters and smoke-test
-caches, not with a new router.
+The next implementation phase should continue with Steam density design and
+normalized table export, not with a new router.
 
 ## Dataset Readiness Table
 
@@ -382,4 +382,3 @@ If Steam + Yelp are feasible, the next claim becomes:
 
 This is meaningfully stronger than continuing threshold selector on the current
 three datasets.
-
