@@ -1,0 +1,25 @@
+{
+  "experiment_name": "v2_3_bootstrap_significance",
+  "description": "Bootstrap paired user-level deltas for V2.2 dataset-level global blend against the best fixed expert.",
+  "candidate_cache_dir": "results/v2_candidate_cache",
+  "selected_weights_path": "results/v2_2_router/v2_2_selected_weights.csv",
+  "output_dir": "results/v2_3_bootstrap",
+  "top_k": 100,
+  "seeds": [42, 123, 456, 789, 2026],
+  "n_bootstrap": 10000,
+  "random_seed": 20260601,
+  "model": {
+    "missing_score": -10.0
+  },
+  "datasets": [
+    {"name": "ML-20M", "slug": "ml20m", "enabled": true},
+    {"name": "ML-1M", "slug": "ml1m", "enabled": true},
+    {"name": "Amazon", "slug": "amazon_books_2018", "enabled": true},
+    {"name": "ML20M-sub163", "slug": "ml20m_sub163", "enabled": false, "skip_reason": "Missing split/features/cache files."}
+  ],
+  "notes": [
+    "The paired unit is a test user within each dataset/seed.",
+    "The comparator is the best fixed expert for that dataset/seed, selected by full-test NDCG@10.",
+    "Bootstrap resamples users with replacement and reports percentile 95% confidence intervals."
+  ]
+}

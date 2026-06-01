@@ -1,0 +1,23 @@
+{
+  "experiment_name": "v2_4_oracle_gap",
+  "description": "Estimate remaining headroom by comparing V2.2 global blend with per-user oracle selection among fixed experts and blend.",
+  "candidate_cache_dir": "results/v2_candidate_cache",
+  "selected_weights_path": "results/v2_2_router/v2_2_selected_weights.csv",
+  "output_dir": "results/v2_4_oracle_gap",
+  "top_k": 100,
+  "seeds": [42, 123, 456, 789, 2026],
+  "model": {
+    "missing_score": -10.0
+  },
+  "datasets": [
+    {"name": "ML-20M", "slug": "ml20m", "enabled": true},
+    {"name": "ML-1M", "slug": "ml1m", "enabled": true},
+    {"name": "Amazon", "slug": "amazon_books_2018", "enabled": true},
+    {"name": "ML20M-sub163", "slug": "ml20m_sub163", "enabled": false, "skip_reason": "Missing split/features/cache files."}
+  ],
+  "notes": [
+    "Oracle selection is an upper bound, not a deployable method.",
+    "oracle_expert chooses the best of M7, R1, and R1-plus per user using test labels.",
+    "oracle_all chooses the best of M7, R1, R1-plus, and V2.2 global blend per user using test labels."
+  ]
+}

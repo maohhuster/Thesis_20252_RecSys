@@ -33,6 +33,13 @@ python3 -m pip install -r requirements.txt
 
 ## Run
 
+Read the current experiment narrative and recommended reporting path:
+
+```text
+docs/Experiment_Summary.md
+docs/Experiment_Overview_Architecture.md
+```
+
 ```bash
 python3 scripts/run_experiment.py --config configs/default.json
 ```
@@ -60,6 +67,46 @@ make v2-2-segments
 ```
 
 The tracked segment summary is in `docs/V2_2_Segment_Analysis.md`.
+
+Run paired user-level bootstrap significance for V2.2:
+
+```bash
+make v2-3-bootstrap
+```
+
+The tracked significance summary is in `docs/V2_3_Bootstrap_Significance.md`.
+
+Estimate the remaining oracle headroom for a V3 router:
+
+```bash
+make v2-4-oracle
+```
+
+The tracked oracle-gap summary is in `docs/V2_4_Oracle_Gap.md`.
+
+Run leave-one-seed-out global blend robustness:
+
+```bash
+make v2-5-loso
+```
+
+The tracked LOSO summary is in `docs/V2_5_LOSO_Global_Blend.md`.
+
+Run the first conservative V3 action router:
+
+```bash
+make v3-router
+```
+
+The tracked V3 diagnostic summary is in `docs/V3_Action_Router_Initial_Result.md`.
+
+Run the pairwise gain-router diagnostic:
+
+```bash
+make v3-1-router
+```
+
+The tracked V3.1 diagnostic summary is in `docs/V3_1_Pairwise_Gain_Router.md`.
 
 ## Test
 

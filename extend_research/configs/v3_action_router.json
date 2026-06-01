@@ -1,0 +1,30 @@
+{
+  "experiment_name": "v3_action_router",
+  "description": "Train a conservative per-user action router over M7, R1, R1-plus, and the V2.2 global blend.",
+  "candidate_cache_dir": "results/v2_candidate_cache",
+  "selected_weights_path": "results/v2_2_router/v2_2_selected_weights.csv",
+  "output_dir": "results/v3_action_router",
+  "top_k": 100,
+  "seeds": [42, 123, 456, 789, 2026],
+  "model": {
+    "missing_score": -10.0,
+    "class_weight": "balanced",
+    "C": 0.3,
+    "max_iter": 1000,
+    "exclude_tied_oracle_labels": true,
+    "min_label_NDCG@10": 0.0,
+    "confidence_thresholds": [0.0, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95, 1.0]
+  },
+  "datasets": [
+    {"name": "ML-20M", "slug": "ml20m", "enabled": true},
+    {"name": "ML-1M", "slug": "ml1m", "enabled": true},
+    {"name": "Amazon", "slug": "amazon_books_2018", "enabled": true},
+    {"name": "ML20M-sub163", "slug": "ml20m_sub163", "enabled": false, "skip_reason": "Missing split/features/cache files."}
+  ],
+  "notes": [
+    "The router trains on validation users and evaluates once on test users.",
+    "The target action is the per-user oracle best action on validation labels.",
+    "Users with tied oracle labels are excluded from training by default to reduce label noise.",
+    "Success is measured against V2.2 global blend, not only fixed experts."
+  ]
+}

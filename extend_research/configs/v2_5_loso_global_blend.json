@@ -1,0 +1,54 @@
+{
+  "experiment_name": "v2_5_leave_one_seed_out_global_blend",
+  "description": "Select dataset-level blend weights on validation caches from all but one seed, then evaluate on the held-out seed.",
+  "candidate_cache_dir": "results/v2_candidate_cache",
+  "output_dir": "results/v2_5_loso_global_blend",
+  "top_k": 100,
+  "seeds": [42, 123, 456, 789, 2026],
+  "datasets": [
+    {
+      "name": "ML-20M",
+      "slug": "ml20m",
+      "enabled": true,
+      "grid": {
+        "step": 0.05,
+        "min": [0.6, 0.0, 0.0],
+        "max": [1.0, 0.4, 0.4]
+      }
+    },
+    {
+      "name": "ML-1M",
+      "slug": "ml1m",
+      "enabled": true,
+      "grid": {
+        "step": 0.05,
+        "min": [0.0, 0.35, 0.0],
+        "max": [0.0, 1.0, 0.65]
+      }
+    },
+    {
+      "name": "Amazon",
+      "slug": "amazon_books_2018",
+      "enabled": true,
+      "grid": {
+        "step": 0.05,
+        "min": [0.0, 0.4, 0.2],
+        "max": [0.0, 0.8, 0.6]
+      }
+    },
+    {
+      "name": "ML20M-sub163",
+      "slug": "ml20m_sub163",
+      "enabled": false,
+      "skip_reason": "Missing split/features/cache files."
+    }
+  ],
+  "model": {
+    "missing_score": -10.0
+  },
+  "notes": [
+    "This robustness check avoids selecting a dataset-level weight using the same seed that is evaluated.",
+    "For each held-out seed, the blend weight is selected by mean validation NDCG@10 over the other available seeds.",
+    "The held-out seed is evaluated once on its test cache."
+  ]
+}
