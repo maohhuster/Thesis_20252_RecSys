@@ -1,0 +1,49 @@
+{
+  "experiment_name": "cross_domain_steam_readiness",
+  "description": "Inspect raw Steam files and produce readiness statistics before building cross-domain candidate caches.",
+  "raw_dir": "data/raw/cross_domain/steam",
+  "output_dir": "results/cross_domain_readiness/steam",
+  "source_urls": {
+    "ucsd_dataset_page": "https://cseweb.ucsd.edu/~jmcauley/datasets.html",
+    "steam_data_directory": "https://mcauleylab.ucsd.edu/public_datasets/data/steam/"
+  },
+  "files": {
+    "games": [
+      "steam_games.json.gz",
+      "steam_games.json",
+      "gamesAll.json.gz",
+      "gamesAll.json"
+    ],
+    "user_items": [
+      "australian_users_items.json.gz",
+      "australian_users_items.json"
+    ],
+    "reviews": [
+      "australian_user_reviews.json.gz",
+      "australian_user_reviews.json",
+      "steam_reviews.json.gz",
+      "steam_reviews.json",
+      "reviewsAll.json.gz",
+      "reviewsAll.json"
+    ]
+  },
+  "limits": {
+    "max_game_records": 200000,
+    "max_user_records": 200000,
+    "max_review_records": 200000,
+    "max_interactions": 1000000,
+    "max_sample_rows": 10000
+  },
+  "filters": {
+    "min_playtime_forever": 1,
+    "recommended_only": true
+  },
+  "density": {
+    "k_core_levels": [5, 10, 20]
+  },
+  "notes": [
+    "This is a readiness/smoke script, not the final cross-domain matrix runner.",
+    "It accepts line-delimited JSON and Python-literal Steam records.",
+    "It writes only reports/samples under results; raw data remains gitignored."
+  ]
+}

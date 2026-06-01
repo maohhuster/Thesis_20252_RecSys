@@ -119,6 +119,14 @@ make v4-segment-blend
 
 The tracked V4 diagnostic summary is in `docs/V4_Segment_Level_Blend.md`.
 
+Inspect Steam cross-domain readiness:
+
+```bash
+make cross-domain-steam-readiness
+```
+
+The tracked Steam smoke plan is in `docs/Cross_Domain_Steam_Smoke.md`.
+
 ## Test
 
 ```bash
